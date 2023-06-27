@@ -1,0 +1,5 @@
+@each $type, $i in $type-map {
+	.bg-#{$type} {
+		background-color: $i;
+	}
+}
