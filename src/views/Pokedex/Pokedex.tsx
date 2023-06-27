@@ -1,5 +1,9 @@
-export const Pokedex = () => {
+interface Props {
+  title: string
+}
+
+export const Pokedex = ({title}: Props) => {
   return (
-    <div>Pokedex</div>
+    <div>Pokedex -  {title}</div>
   )
 }
