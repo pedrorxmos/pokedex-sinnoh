@@ -14,6 +14,21 @@
 	width: 100%;
 	z-index: 100;
 
+	@include mq(min-width, 600px) {
+		padding-left: 32px;
+		padding-right: 32px;
+	}
+
+	@include mq(min-width, 960px) {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+
+	@include mq(min-width, 1280px) {
+		padding-left: 96px;
+		padding-right: 96px;
+	}
+
 	.nav {
 		@include d-flex(row, 1.5rem);
 		align-items: center;
@@ -59,27 +74,51 @@
 					}
 				}
 			}
-		}
 
-		.nav-overlay {
-			display: none;
-			width: 100vw;
-			height: 100vh;
-			color: rgba(0, 0, 0, 0.492);
-			position: fixed;
-			top: 0;
-			left: 0;
-			z-index: 50;
+			@include mq(min-width, 600px) {
+				position: static;
+				pointer-events: all;
+				height: unset;
+				top: 0;
+				flex-direction: row;
+				gap: 1.5rem;
 
-			&.open {
-				display: block;
+				.nav__item {
+					padding: 0;
+
+					&:first-child {
+						padding-top: 0;
+					}
+
+					.nav__link {
+						padding: 0;
+
+						&:hover {
+							background-color: unset;
+						}
+
+						svg {
+							display: none;
+						}
+					}
+				}
 			}
 		}
 
-		&.open {
-			.nav-list {
-				height: 100vh;
-				pointer-events: all;
+		.menu-toggle {
+			display: none;
+		}
+
+		@include mq(max-width, 600px) {
+			&.open {
+				.nav-list {
+					height: 100vh;
+					pointer-events: all;
+				}
+			}
+
+			.menu-toggle {
+				display: flex;
 			}
 		}
 	}

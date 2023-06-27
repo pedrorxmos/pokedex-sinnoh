@@ -60,9 +60,8 @@ export const Topbar = () => {
 							</Link>
 						</li>
 					</ul>
-					<div className="nav-overlay" onClick={() => console.log('overlay')}></div>
 
-					<button className="btn menu-toggle" onClick={toggleMenu}>
+					<button className="btn nav-action menu-toggle" onClick={toggleMenu}>
 						X
 					</button>
 				</nav>
