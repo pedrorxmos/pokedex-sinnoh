@@ -1,3 +1,10 @@
 @import '../../scss/variables';
 @import '../../scss/mixins';
 @import '../../scss/functions';
+
+.topbar {
+	padding: 24px;
+	background-color: var(--bg-color);
+	@include d-flex(row, 0);
+	justify-content: space-between;
+}

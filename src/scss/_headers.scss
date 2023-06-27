@@ -1,4 +1,47 @@
 h1,
 .h1 {
 	font-family: $headers-font-family;
+	margin: 0;
+	font-size: fs('huge');
+	font-weight: 500;
+}
+
+h2,
+.h2 {
+	font-family: $headers-font-family;
+	margin: 0;
+	font-size: fs('x-big');
+	font-weight: 500;
+}
+
+h3,
+.h3 {
+	font-family: $headers-font-family;
+	margin: 0;
+	font-size: fs('large');
+	font-weight: 500;
+}
+
+h4,
+.h4 {
+	font-family: $headers-font-family;
+	margin: 0;
+	font-size: fs('x-normal');
+	font-weight: 500;
+}
+
+h5,
+.h5 {
+	font-family: $headers-font-family;
+	margin: 0;
+	font-size: fs('normal');
+	font-weight: 500;
+}
+
+h6,
+.h6 {
+	font-family: $headers-font-family;
+	margin: 0;
+	font-size: fs('small');
+	font-weight: 500;
 }
