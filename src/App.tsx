@@ -1,5 +1,5 @@
 import './scss/global.scss';
-import { Favorites, Home, Pokemon } from './views';
+import { Pokedex } from './views';
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
@@ -8,9 +8,8 @@ function App() {
     <>
       <h1>Pokedex</h1>
       <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='pokemon/:id' element={<Pokemon />} />
-        <Route path='favorites' element={<Favorites />} />
+        <Route path='/' element={<Pokedex />}/>
+        <Route path='favorites' element={<Pokedex />} />
       </Routes>
     </>
   )
