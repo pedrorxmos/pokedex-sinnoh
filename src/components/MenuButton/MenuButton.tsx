@@ -42,7 +42,7 @@ export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
 							dur="0.3s"
 							fill="freeze"
 							begin="indefinite"
-							values="0 7, 24 7; 6 6, 18 18"
+							values="0 7, 24 7; 6 12, 18 12; 6 6, 18 18"
 						></animate>
 						<animate
 							id="menu-icon_top-line--close"
@@ -50,7 +50,7 @@ export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
 							dur="0.3s"
 							fill="freeze"
 							begin="indefinite"
-							values="6 6, 18 18; 0 7, 24 7"
+							values="6 6, 18 18; 6 12, 18 12; 0 7, 24 7"
 						></animate>
 					</polyline>
 					<polyline points="18 15, 6 15" className="menu-icon__bottom-line">
@@ -60,7 +60,7 @@ export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
 							dur="0.3s"
 							fill="freeze"
 							begin="indefinite"
-							values="18 15, 6 15; 18 6, 6 18"
+							values="18 15, 6 15; 18 12, 6 12; 18 6, 6 18"
 						></animate>
 						<animate
 							id="menu-icon_bottom-line--close"
@@ -68,7 +68,7 @@ export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
 							dur="0.3s"
 							fill="freeze"
 							begin="indefinite"
-							values="18 6, 6 18; 18 15, 6 15"
+							values="18 6, 6 18; 18 12, 6 12; 18 15, 6 15"
 						></animate>
 					</polyline>
 				</svg>
