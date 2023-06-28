@@ -38,6 +38,7 @@
 		.nav-list {
 			@include d-flex(column, 0);
 			align-items: center;
+			background-color: var(--bg-color);
 			position: fixed;
 			top: 69px;
 			right: 0;
