@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom';
 import { Icon, MenuButton } from '../';
 import './Topbar.scss';
+import { useEffect, useState } from 'react';
+import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
 
 export const Topbar = () => {
+	const [theme, setTheme] = useState<string>(useGetItem('theme', 'light'));
+	useSetItem('theme', theme);
+	const root = document.querySelector(':root');
+
 	const onToggleMenu = () => {
 		document.querySelector('.nav')?.classList.toggle('open');
 	};
@@ -10,6 +16,14 @@ export const Topbar = () => {
 	const onCloseMenu = () => {
 		document.querySelector('.nav')?.classList.remove('open');
 	};
+
+	const onThemeSwitch = () => {
+		theme === 'dark' ? setTheme('light') : setTheme('dark');
+	};
+
+	useEffect(() => {
+		if (root) root.className = theme;
+	}, [theme, root]);
 
 	return (
 		<>
@@ -19,7 +33,7 @@ export const Topbar = () => {
 				</Link>
 
 				<nav className="nav">
-					<button className="btn nav-action theme-toggle" title="switch theme">
+					<button className="btn nav-action theme-toggle" title="switch theme" onClick={onThemeSwitch}>
 						<Icon name="sun" title="switch to dark theme" className="theme-light" size="md" />
 						<Icon name="moon" title="switch to light theme" className="theme-dark" size="md" />
 					</button>
