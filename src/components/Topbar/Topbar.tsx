@@ -7,6 +7,10 @@ export const Topbar = () => {
 		document.querySelector('.nav')?.classList.toggle('open');
 	};
 
+	const onCloseMenu = () => {
+		document.querySelector('.nav')?.classList.remove('open');
+	};
+
 	return (
 		<>
 			<header className="topbar">
@@ -21,13 +25,13 @@ export const Topbar = () => {
 					</button>
 					<ul className="nav-list">
 						<li className="nav__item">
-							<Link to="/" className="nav__link">
+							<Link to="/" className="nav__link" onClick={onCloseMenu}>
 								Pokedex
 								<Icon name="arrow-right" title="go to pokedex" />
 							</Link>
 						</li>
 						<li className="nav__item">
-							<Link to="/favorites" className="nav__link">
+							<Link to="/favorites" className="nav__link" onClick={onCloseMenu}>
 								<span>Favorites</span>
 								<Icon name="arrow-right" title="go to favorites" />
 							</Link>
