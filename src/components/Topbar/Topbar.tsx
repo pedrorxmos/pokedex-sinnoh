@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import './Topbar.scss';
+import { Icon } from '../Icon/Icon';
 
 export const Topbar = () => {
 	const toggleMenu = () => {
@@ -16,7 +17,7 @@ export const Topbar = () => {
 
 				<nav className="nav">
 					<button className="btn nav-action theme-toggle" title="switch theme">
-						theme
+						theme <Icon name="sun" title="switch to dark theme" />
 					</button>
 					<ul className="nav-list">
 						<li className="nav__item">
