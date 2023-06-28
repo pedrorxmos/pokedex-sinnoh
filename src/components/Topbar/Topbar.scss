@@ -33,6 +33,7 @@
 		@include d-flex(row, 1.5rem);
 		align-items: center;
 		z-index: 100;
+		color: var(--text-color);
 
 		.nav-list {
 			@include d-flex(column, 0);
@@ -111,6 +112,7 @@
 			margin: none;
 			padding: none;
 			cursor: pointer;
+			color: var(--text-color);
 		}
 
 		.theme-toggle {
@@ -121,17 +123,6 @@
 
 		.menu-toggle {
 			display: none;
-			@include d-flex(column, 0.5rem);
-			justify-content: center;
-			align-items: center;
-			width: 24px;
-			height: 24px;
-
-			span {
-				width: 24px;
-				height: 2px;
-				background-color: var(--text-color);
-			}
 		}
 
 		@include mq(max-width, 600px) {
