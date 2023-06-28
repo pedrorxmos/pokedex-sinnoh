@@ -1,0 +1,27 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/functions';
+
+.svg {
+	stroke-width: 1.25;
+	display: block;
+	z-index: inherit;
+	color: inherit;
+	width: 24px;
+	height: 24px;
+
+	&.svg-sm {
+		width: 16px;
+		height: 16px;
+	}
+
+	&.svg-md {
+		width: 24px;
+		height: 24px;
+	}
+
+	&.svg-lg {
+		width: 48px;
+		height: 48px;
+	}
+}
