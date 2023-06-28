@@ -1,0 +1,19 @@
+@mixin d-flex($dir: row, $gap: 0) {
+	display: flex;
+	flex-direction: $dir;
+	gap: $gap;
+}
+
+@mixin mq($dir: min-width, $size) {
+	@media ($dir: $size) {
+		@content;
+	}
+}
+
+@mixin prefix($property, $value) {
+	-webkit-#{$property}: $value;
+	-o-#{$property}: $value;
+	-moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	#{$property}: $value;
+}

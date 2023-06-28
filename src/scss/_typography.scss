@@ -1,0 +1,34 @@
+p {
+	margin: 0;
+	font-size: fs('normal');
+}
+
+small {
+	margin: 0;
+	font-size: fs('x-small');
+}
+
+big {
+	margin: 0;
+	font-size: fs('big');
+}
+
+a {
+	display: block;
+	margin: 0;
+	text-decoration: none;
+	color: inherit;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+	display: block;
+}

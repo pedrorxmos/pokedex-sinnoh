@@ -1,0 +1,26 @@
+:root,
+:root.light {
+	--bg-color: #{$flash};
+	--text-color: #{$grey0};
+
+	--light-color: #{$grey100};
+	--light-hover: #{$light-blue2};
+	--light-focus: #{$light-blue1};
+
+	--blue-color: #{$blue};
+
+	--detail-color: #{$light-blue1};
+}
+
+:root.dark {
+	--bg-color: #{$navy1};
+	--text-color: #{$grey100};
+
+	--light-color: #{$navy2};
+	--light-hover: #{$dark-blue};
+	--light-focus: #{$navy3};
+
+	--blue-color: #{$blue};
+
+	--detail-color: #{$navy2};
+}

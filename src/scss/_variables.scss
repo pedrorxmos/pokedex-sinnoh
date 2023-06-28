@@ -1,0 +1,80 @@
+// COLOR PALETTE
+$grey0: #0d0d0d;
+$grey20: #404040;
+$grey40: #808080;
+$grey60: #bfbfbf;
+$grey80: #e6e6e6;
+$grey100: #fcfcfc;
+
+$navy1: #192733;
+$navy2: #163450;
+$navy3: #193f63;
+$dark-blue: #214e78;
+$blue: #4fa4f4;
+$light-blue1: #c8e3f6;
+$light-blue2: #f0f5fb;
+$flash: #f5f7fa;
+
+// Pokemon types
+$bug: #3c7d4a;
+$dark: #343248;
+$dragon: #62c9d9;
+$electric: #dbdb32;
+$fairy: #e446c1;
+$fight: #ef6138;
+$fire: #fe4a58;
+$fly: #93b2c5;
+$ghost: #8f6790;
+$grass: #37aa53;
+$ground: #8a6437;
+$ice: #95c4db;
+$normal: #a9a3a5;
+$poison: #5e2d88;
+$psychic: #a62a6a;
+$rock: #48180b;
+$steel: #5f756d;
+$water: #1552e2;
+
+$type-map: (
+	'bug': $bug,
+	'dark': $dark,
+	'dragon': $dragon,
+	'electric': $electric,
+	'fairy': $fairy,
+	'fight': $fight,
+	'fire': $fire,
+	'fly': $fly,
+	'ghost': $ghost,
+	'grass': $grass,
+	'ground': $ground,
+	'ice': $ice,
+	'normal': $normal,
+	'poison': $poison,
+	'psychic': $psychic,
+	'rock': $rock,
+	'steel': $steel,
+	'water': $water,
+);
+
+$default-font-size: 16px;
+$main-font-family: 'Open Sans', sans-serif;
+$headers-font-family: 'Ubuntu', sans-serif;
+
+$size-map: (
+	// small
+	'x-small': 0.75,
+	// h6
+	'small': 0.889,
+	// default & h5
+	'normal': 1,
+	// h4
+	'x-normal': 1.125,
+	// h3
+	'large': 1.1266,
+	// big
+	'big': 1.333333,
+	// h2
+	'x-big': 1.424,
+	// h1
+	'huge': 1.602
+);
