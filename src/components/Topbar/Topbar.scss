@@ -117,8 +117,37 @@
 		}
 
 		.theme-toggle {
+			position: relative;
+			width: 24px;
+			height: 24px;
+			.theme-light,
 			.theme-dark {
-				display: none;
+				position: absolute;
+				top: 0;
+				left: 0;
+				@include prefix(transition, opacity 0.3s);
+
+				&.animation {
+					animation: rotateTheme 0.5s ease;
+				}
+			}
+
+			&.light {
+				.theme-dark {
+					opacity: 0;
+				}
+				.theme-light {
+					opacity: 1;
+				}
+			}
+
+			&.dark {
+				.theme-dark {
+					opacity: 1;
+				}
+				.theme-light {
+					opacity: 0;
+				}
 			}
 		}
 
@@ -138,5 +167,14 @@
 				display: flex;
 			}
 		}
+	}
+}
+
+@keyframes rotateTheme {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
 	}
 }
