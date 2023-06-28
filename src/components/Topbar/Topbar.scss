@@ -60,7 +60,7 @@
 					text-align: center;
 					border-radius: 1rem;
 
-					svg {
+					.svg {
 						opacity: 0;
 
 						@include prefix(transition, (opacity 0.3s));
@@ -68,7 +68,7 @@
 
 					&:hover {
 						background-color: var(--light-color);
-						svg {
+						.svg {
 							opacity: 1;
 						}
 					}
@@ -97,11 +97,25 @@
 							background-color: unset;
 						}
 
-						svg {
+						.svg {
 							display: none;
 						}
 					}
 				}
+			}
+		}
+
+		.nav-action {
+			background: none;
+			border: none;
+			margin: none;
+			padding: none;
+			cursor: pointer;
+		}
+
+		.theme-toggle {
+			.theme-dark {
+				display: none;
 			}
 		}
 

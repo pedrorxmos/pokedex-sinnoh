@@ -20,7 +20,7 @@ export const Icon = ({ name, title, size, className }: IconTypes) => {
 			strokeWidth={2}
 			strokeLinecap="round"
 			strokeLinejoin="round"
-			className={`svg${size ? ` svg-${size}` : ''}${className ? ` ${className}` : ''} feather hero ${name}`}
+			className={`svg${size ? ` svg-${size}` : ''}${className ? ` ${className}` : ''} feather feather-${name}`}
 		>
 			<title>{title}</title>
 			{getSvgContent(name)}

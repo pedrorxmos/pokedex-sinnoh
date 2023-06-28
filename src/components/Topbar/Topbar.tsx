@@ -17,7 +17,8 @@ export const Topbar = () => {
 
 				<nav className="nav">
 					<button className="btn nav-action theme-toggle" title="switch theme">
-						theme <Icon name="sun" title="switch to dark theme" />
+						<Icon name="sun" title="switch to dark theme" className="theme-light" />
+						<Icon name="moon" title="switch to light theme" className="theme-dark" />
 					</button>
 					<ul className="nav-list">
 						<li className="nav__item">
@@ -35,7 +36,7 @@ export const Topbar = () => {
 					</ul>
 
 					<button className="btn nav-action menu-toggle" onClick={toggleMenu}>
-						X
+						<Icon name="x" title="open/close menu" />
 					</button>
 				</nav>
 			</header>
