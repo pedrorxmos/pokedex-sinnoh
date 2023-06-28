@@ -20,20 +20,20 @@ export const Topbar = () => {
 
 				<nav className="nav">
 					<button className="btn nav-action theme-toggle" title="switch theme">
-						<Icon name="sun" title="switch to dark theme" className="theme-light" />
-						<Icon name="moon" title="switch to light theme" className="theme-dark" />
+						<Icon name="sun" title="switch to dark theme" className="theme-light" size="md" />
+						<Icon name="moon" title="switch to light theme" className="theme-dark" size="md" />
 					</button>
 					<ul className="nav-list">
 						<li className="nav__item">
 							<Link to="/" className="nav__link" onClick={onCloseMenu}>
 								Pokedex
-								<Icon name="arrow-right" title="go to pokedex" />
+								<Icon name="arrow-right" title="go to pokedex" size="md" />
 							</Link>
 						</li>
 						<li className="nav__item">
 							<Link to="/favorites" className="nav__link" onClick={onCloseMenu}>
 								<span>Favorites</span>
-								<Icon name="arrow-right" title="go to favorites" />
+								<Icon name="arrow-right" title="go to favorites" size="md" />
 							</Link>
 						</li>
 					</ul>
