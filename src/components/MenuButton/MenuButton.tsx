@@ -6,8 +6,18 @@ interface MenuIconProps {
 }
 
 export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
+	const triggerAnimation = (type: string) => {
+		document.querySelector<SVGAnimateTransformElement>(`#menu-icon_top-line--${type}`)?.beginElement();
+		document.querySelector<SVGAnimateTransformElement>(`#menu-icon_bottom-line--${type}`)?.beginElement();
+	};
+
 	const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		onToggleMenu(e);
+
+		// Timeout added for possible order changes
+		setTimeout(() => {
+			document.querySelector('.nav')?.classList.contains('open') ? triggerAnimation('open') : triggerAnimation('close');
+		}, 1);
 	};
 
 	return (
@@ -50,7 +60,7 @@ export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
 							dur="0.3s"
 							fill="freeze"
 							begin="indefinite"
-							values="18 15, 6 15; 6 18, 18 6"
+							values="18 15, 6 15; 18 6, 6 18"
 						></animate>
 						<animate
 							id="menu-icon_bottom-line--close"
@@ -58,7 +68,7 @@ export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
 							dur="0.3s"
 							fill="freeze"
 							begin="indefinite"
-							values="6 18, 18 6; 18 15, 6 15"
+							values="18 6, 6 18; 18 15, 6 15"
 						></animate>
 					</polyline>
 				</svg>
