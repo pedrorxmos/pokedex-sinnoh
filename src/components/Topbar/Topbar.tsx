@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-
+import { Icon, MenuIcon } from '../';
 import './Topbar.scss';
-import { Icon } from '../Icon/Icon';
 
 export const Topbar = () => {
 	const toggleMenu = () => {
@@ -36,7 +35,7 @@ export const Topbar = () => {
 					</ul>
 
 					<button className="btn nav-action menu-toggle" onClick={toggleMenu}>
-						<Icon name="x" title="open/close menu" />
+						<MenuIcon />
 					</button>
 				</nav>
 			</header>

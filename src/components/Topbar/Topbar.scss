@@ -121,6 +121,17 @@
 
 		.menu-toggle {
 			display: none;
+			@include d-flex(column, 0.5rem);
+			justify-content: center;
+			align-items: center;
+			width: 24px;
+			height: 24px;
+
+			span {
+				width: 24px;
+				height: 2px;
+				background-color: var(--text-color);
+			}
 		}
 
 		@include mq(max-width, 600px) {
