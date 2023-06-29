@@ -9,7 +9,7 @@ interface PokedexProps {
 }
 
 export const Pokedex = ({ title, pokedex }: PokedexProps) => {
-	const [layout, setLayout] = useState('grid');
+	const [layout, setLayout] = useState('list');
 
 	const onClickPokemon = (pokemon: PokemonTypes): void => {
 		console.log(pokemon.name);

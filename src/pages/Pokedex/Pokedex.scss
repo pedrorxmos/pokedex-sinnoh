@@ -37,6 +37,28 @@
 		max-width: 1280px;
 	}
 
+	.pokedex-header {
+		@include d-flex(column, 0.75rem);
+		justify-content: stretch;
+		align-items: stretch;
+
+		h1 {
+			text-align: left;
+		}
+
+		.pokedex-header__filters {
+			@include d-flex(row, 0);
+			justify-content: flex-end;
+			align-items: flex-end;
+		}
+
+		@include mq(min-width, 400px) {
+			flex-direction: row;
+			gap: 0;
+			justify-content: space-between;
+		}
+	}
+
 	.pokedex-container {
 		@include d-flex(row, 24px);
 		justify-content: stretch;
