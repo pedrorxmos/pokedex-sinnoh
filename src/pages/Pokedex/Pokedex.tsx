@@ -25,7 +25,7 @@ export const Pokedex = ({ title }: PokedexProps) => {
 							<PokemonCard key={x.entry_number} name={x.pokemon_species.name} url={x.pokemon_species.url} onClickPokemon={onClickPokemon} />
 						))}
 					</article>
-					<article className="pokedex-detail"></article>
+					{/* <article className="pokedex-detail"></article> */}
 				</section>
 			</main>
 		</>
