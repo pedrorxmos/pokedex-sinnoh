@@ -9,7 +9,7 @@ export const Topbar = () => {
 	useSetItem('theme', theme);
 	const root = document.querySelector(':root');
 
-	const onToggleMenu = () => {
+	const onToggleMenu = (): void => {
 		document.querySelector('.nav')?.classList.toggle('open');
 	};
 

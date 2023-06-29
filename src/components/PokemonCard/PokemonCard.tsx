@@ -1,11 +1,11 @@
 import { useFetch } from '../../hooks/useFetch';
-import { TypeTypes } from '../../interfaces';
+import { PokemonTypes, TypeTypes } from '../../interfaces';
 import './PokemonCard.scss';
 
 export interface PokemonCardProps {
 	name: string;
 	url: string;
-	onClickPokemon: any;
+	onClickPokemon: (params: PokemonTypes) => void;
 }
 
 export const PokemonCard = ({ name, url, onClickPokemon }: PokemonCardProps) => {
@@ -16,15 +16,15 @@ export const PokemonCard = ({ name, url, onClickPokemon }: PokemonCardProps) => 
 	const { data } = useFetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
 	const { types, stats } = data || {};
 
-	const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-		const pokemon = {
+	const onClick = () => {
+		const pokemon: PokemonTypes = {
 			name: name,
 			url: url,
 			types: types,
 			stats: stats,
 		};
 
-		onClickPokemon(e, pokemon);
+		onClickPokemon(pokemon);
 	};
 
 	return (

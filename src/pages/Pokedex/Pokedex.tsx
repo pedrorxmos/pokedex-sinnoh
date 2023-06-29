@@ -11,7 +11,7 @@ export const Pokedex = ({ title }: PokedexProps) => {
 	const { data } = useFetch('https://pokeapi.co/api/v2/pokedex/6/');
 	const { pokemon_entries } = data || [];
 
-	const onClickPokemon = (e: React.MouseEvent<HTMLButtonElement>, pokemon: PokemonTypes) => {
+	const onClickPokemon = (pokemon: PokemonTypes): void => {
 		console.log(pokemon.name);
 	};
 
