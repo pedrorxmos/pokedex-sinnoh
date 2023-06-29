@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { LayoutSwitcher, Pokeball, PokemonCard } from '../../components';
+import { LayoutSwitcher, Pokeball } from '../../components';
 import { EntryType, PokemonTypes } from '../../interfaces';
 import './Pokedex.scss';
 import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
+import { ListView } from '../../views/ListView/ListView';
 
 interface PokedexProps {
 	title: string;
@@ -26,17 +27,7 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 					</div>
 				</div>
 				<section className="pokedex-container">
-					<article className={`pokedex-list pokedex-list__layout-${layout}`}>
-						{pokedex?.slice(0, 15).map((x: EntryType) => (
-							<PokemonCard
-								key={x.entry_number}
-								name={x.pokemon_species.name}
-								url={x.pokemon_species.url}
-								onClickPokemon={onClickPokemon}
-								className={layout}
-							/>
-						))}
-					</article>
+					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} />
 					<article className="pokedex-detail">
 						<Pokeball />
 					</article>
