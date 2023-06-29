@@ -1,8 +1,6 @@
-import React from 'react';
-
 interface MenuIconProps {
 	className?: string;
-	onToggleMenu: React.MouseEventHandler<HTMLButtonElement>;
+	onToggleMenu: () => void;
 }
 
 export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
@@ -11,8 +9,8 @@ export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
 		document.querySelector<SVGAnimateTransformElement>(`#menu-icon_bottom-line--${type}`)?.beginElement();
 	};
 
-	const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-		onToggleMenu(e);
+	const onClick = () => {
+		onToggleMenu();
 
 		// Timeout added for possible order changes
 		setTimeout(() => {

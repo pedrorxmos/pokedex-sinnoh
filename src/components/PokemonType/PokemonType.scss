@@ -1,0 +1,29 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/functions';
+
+.pokemon-type {
+	border-radius: 8px;
+	padding: 2px 6px;
+	color: $grey100;
+	text-transform: uppercase;
+	font-size: fs('x-small');
+
+	@include mq(max-width, 380px) {
+		font-size: 10px;
+	}
+}
+
+// Only when it is inside a product card with list layout
+.pokemon-card.list {
+	.pokemon-type {
+		@include mq(max-width, 360px) {
+			width: 12px;
+			height: 12px;
+			padding: 0;
+			span {
+				display: none;
+			}
+		}
+	}
+}

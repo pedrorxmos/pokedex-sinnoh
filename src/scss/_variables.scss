@@ -21,9 +21,9 @@ $dark: #343248;
 $dragon: #62c9d9;
 $electric: #dbdb32;
 $fairy: #e446c1;
-$fight: #ef6138;
+$fighting: #ef6138;
 $fire: #fe4a58;
-$fly: #93b2c5;
+$flying: #93b2c5;
 $ghost: #8f6790;
 $grass: #37aa53;
 $ground: #8a6437;
@@ -35,15 +35,17 @@ $rock: #48180b;
 $steel: #5f756d;
 $water: #1552e2;
 
+$shadow-color: rgba(0, 0, 0, 0.15);
+
 $type-map: (
 	'bug': $bug,
 	'dark': $dark,
 	'dragon': $dragon,
 	'electric': $electric,
 	'fairy': $fairy,
-	'fight': $fight,
+	'fighting': $fighting,
 	'fire': $fire,
-	'fly': $fly,
+	'flying': $flying,
 	'ghost': $ghost,
 	'grass': $grass,
 	'ground': $ground,
