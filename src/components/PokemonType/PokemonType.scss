@@ -1,3 +1,11 @@
 @import '../../scss/variables';
 @import '../../scss/mixins';
 @import '../../scss/functions';
+
+.pokemon-type {
+	border-radius: 8px;
+	padding: 2px 6px;
+	color: $grey100;
+	text-transform: uppercase;
+	font-size: fs('x-small');
+}

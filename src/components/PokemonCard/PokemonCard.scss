@@ -13,6 +13,7 @@
 	color: var(--text-color);
 	box-shadow: 2px 2px 4px 0 $shadow-color;
 	width: 100%;
+	font-family: $main-font-family;
 
 	.pokemon-card__img {
 		width: 80px;
