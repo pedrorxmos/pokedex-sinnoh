@@ -14,6 +14,7 @@
 	box-shadow: 2px 2px 4px 0 $shadow-color;
 	width: 100%;
 	font-family: $main-font-family;
+	cursor: pointer;
 
 	.pokemon-card__img {
 		width: 80px;
@@ -39,5 +40,16 @@
 		.pokemon-card__info__types {
 			@include d-flex(row, 8px);
 		}
+	}
+
+	&:hover,
+	&:focus {
+		background: var(--light-hover);
+		border-color: var(--blue-color);
+	}
+
+	&:active {
+		background: var(--light-focus);
+		border-color: var(--blue-color);
 	}
 }

@@ -20,7 +20,7 @@ export const Pokedex = ({ title }: PokedexProps) => {
 			<main className="pokedex">
 				<h1>{title}</h1>
 				<section className="pokedex-container">
-					<article className="pokedex-list">
+					<article className="pokedex-list pokedex-list__layout-grid">
 						{pokemon_entries?.slice(0, 15).map((x: EntryType) => (
 							<PokemonCard key={x.entry_number} name={x.pokemon_species.name} url={x.pokemon_species.url} onClickPokemon={onClickPokemon} />
 						))}
