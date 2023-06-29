@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Pokeball, PokemonCard } from '../../components';
+import { LayoutSwitcher, Pokeball, PokemonCard } from '../../components';
 import { EntryType, PokemonTypes } from '../../interfaces';
 import './Pokedex.scss';
 
@@ -9,7 +9,7 @@ interface PokedexProps {
 }
 
 export const Pokedex = ({ title, pokedex }: PokedexProps) => {
-	const [layout, setLayout] = useState('list');
+	const [layout, setLayout] = useState('grid');
 
 	const onClickPokemon = (pokemon: PokemonTypes): void => {
 		console.log(pokemon.name);
@@ -18,7 +18,12 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 	return (
 		<>
 			<main className="pokedex">
-				<h1>{title}</h1>
+				<div className="pokedex-header">
+					<h1>{title}</h1>
+					<div className="pokedex-header__filters">
+						<LayoutSwitcher />
+					</div>
+				</div>
 				<section className="pokedex-container">
 					<article className={`pokedex-list pokedex-list__layout-${layout}`}>
 						{pokedex?.slice(0, 15).map((x: EntryType) => (
