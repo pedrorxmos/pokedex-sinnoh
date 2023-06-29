@@ -9,6 +9,10 @@ export const Pokedex = ({ title }: PokedexProps) => {
 		<>
 			<main className="pokedex">
 				<h1>{title}</h1>
+				<section className="pokedex-container">
+					<article className="pokedex-list"></article>
+					<article className="pokedex-detail"></article>
+				</section>
 			</main>
 		</>
 	);
