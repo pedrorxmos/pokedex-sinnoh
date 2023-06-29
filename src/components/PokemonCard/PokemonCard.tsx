@@ -32,11 +32,12 @@ export const PokemonCard = ({ name, url, onClickPokemon }: PokemonCardProps) => 
 			<img
 				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/${id}.png`}
 				alt={`${name} sprite`}
+				className="pokemon-card__img"
 			/>
 			<div className="pokemon-card__info">
 				<div className="pokemon-card__info__header">
 					<small className="info__id">{`#${id}`}</small>
-					<h3 className="info__name">name</h3>
+					<span className="info__name h5">{name}</span>
 				</div>
 
 				<div className="pokemon-card__info__types">

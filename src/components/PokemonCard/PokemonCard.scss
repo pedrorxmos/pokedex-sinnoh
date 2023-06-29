@@ -1,3 +1,38 @@
 @import '../../scss/variables';
 @import '../../scss/mixins';
 @import '../../scss/functions';
+
+.pokemon-card {
+	@include d-flex(row, 0.5rem);
+	justify-content: flex-start;
+	align-items: stretch;
+	padding: 24px;
+	border-radius: 8px;
+	background: var(--light-color);
+	border: 1px solid var(--light-color);
+	color: var(--text-color);
+	box-shadow: 2px 2px 4px 0 $shadow-color;
+	width: 100%;
+
+	.pokemon-card__img {
+		width: 80px;
+		height: 80px;
+		object-fit: cover;
+	}
+
+	.pokemon-card__info {
+		@include d-flex(column, 0);
+		justify-content: space-between;
+		align-items: flex-start;
+
+		.pokemon-card__info__header {
+			@include d-flex(column, 4px);
+			justify-content: flex-start;
+			align-items: flex-start;
+
+			.info__name {
+				text-transform: capitalize;
+			}
+		}
+	}
+}
