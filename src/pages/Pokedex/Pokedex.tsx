@@ -21,7 +21,7 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 				<div className="pokedex-header">
 					<h1>{title}</h1>
 					<div className="pokedex-header__filters">
-						<LayoutSwitcher />
+						<LayoutSwitcher layout={layout} setLayout={setLayout} />
 					</div>
 				</div>
 				<section className="pokedex-container">

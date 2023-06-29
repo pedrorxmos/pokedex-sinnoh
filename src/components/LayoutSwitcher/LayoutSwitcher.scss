@@ -8,6 +8,7 @@
 	align-items: flex-end;
 	position: relative;
 	z-index: 20;
+	font-size: fs('small');
 
 	.layout-filter__overlay {
 		position: fixed;

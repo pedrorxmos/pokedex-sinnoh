@@ -1,7 +1,13 @@
+import React from 'react';
 import { Icon } from '..';
 import './LayoutSwitcher.scss';
 
-export const LayoutSwitcher = () => {
+interface LayouSwitcherProps {
+	layout: string;
+	setLayout: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export const LayoutSwitcher = ({ layout, setLayout }: LayouSwitcherProps) => {
 	const onToggleDropdown = () => {
 		document.querySelector('.layout-filter')?.classList.toggle('open');
 	};
@@ -12,6 +18,7 @@ export const LayoutSwitcher = () => {
 
 	const onChangeLayout = (value: string) => {
 		onCloseDropdown();
+		setLayout(value);
 	};
 
 	return (
@@ -21,8 +28,8 @@ export const LayoutSwitcher = () => {
 				<span>View:</span>
 				<button className="layout-filter__dropdown" onClick={onToggleDropdown}>
 					<div className="layout-filter__dropdown__selection">
-						<Icon name="grid" title="grid" size="sm" />
-						<span>grid</span>
+						<Icon name={layout} title={layout} size="sm" />
+						<span>{layout}</span>
 					</div>
 
 					<Icon name="chevron-down" title="layout-chevron" size="sm" />
