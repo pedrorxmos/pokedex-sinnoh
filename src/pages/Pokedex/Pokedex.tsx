@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { PokemonCard } from '../../components/PokemonCard/PokemonCard';
 import { useFetch } from '../../hooks/useFetch';
 import './Pokedex.scss';
 
@@ -18,14 +18,6 @@ export const Pokedex = ({ title }: PokedexProps) => {
 	const { data } = useFetch('https://pokeapi.co/api/v2/pokedex/6/');
 	const { pokemon_entries } = data || [];
 
-	// useEffect(() => {
-	// 	const newPokedex: EntryType[] = [];
-	// 	pokemon_entries?.slice(0, 15).forEach((x: EntryType) => {
-	// 		newPokedex.push(x);
-	// 	});
-	// 	setPokedex(newPokedex);
-	// 	console.log(pokedex);
-	// }, [pokemon_entries]);
 	return (
 		<>
 			<main className="pokedex">
@@ -33,7 +25,7 @@ export const Pokedex = ({ title }: PokedexProps) => {
 				<section className="pokedex-container">
 					<article className="pokedex-list">
 						{pokemon_entries?.slice(0, 15).map((x: EntryType) => (
-							<p>{x.pokemon_species.name}</p>
+							<PokemonCard key={x.entry_number} name={x.pokemon_species.name} url={x.pokemon_species.url} />
 						))}
 					</article>
 					<article className="pokedex-detail"></article>
