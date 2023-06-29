@@ -3,7 +3,7 @@ import { LayoutSwitcher, Pokeball } from '../../components';
 import { EntryType, PokemonTypes } from '../../interfaces';
 import './Pokedex.scss';
 import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
-import { ListView } from '../../views/ListView/ListView';
+import { ListView, DetailView } from '../../views';
 
 interface PokedexProps {
 	title: string;
@@ -28,9 +28,7 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 				</div>
 				<section className="pokedex-container">
 					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} />
-					<article className="pokedex-detail">
-						<Pokeball />
-					</article>
+					<DetailView />
 				</section>
 			</main>
 		</>
