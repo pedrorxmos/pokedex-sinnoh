@@ -14,8 +14,18 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 	const [layout, setLayout] = useState(useGetItem('layoutStyle', 'grid'));
 	useSetItem('layoutStyle', layout);
 
-	const onClickPokemon = (pokemon: PokemonTypes): void => {
-		console.log(pokemon);
+	const [pokemon, setPokemon] = useState(initialPokemon);
+
+	const onClickPokemon = (value: PokemonTypes): void => {
+		if (pokemon.id === value.id) return;
+
+		document.querySelector('.pokedex-detail')?.classList.remove('open');
+		setTimeout(() => {
+			setPokemon(value);
+		}, 210);
+		setTimeout(() => {
+			document.querySelector('.pokedex-detail')?.classList.add('open');
+		}, 400);
 	};
 
 	return (
@@ -29,14 +39,14 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 				</div>
 				<section className="pokedex-container">
 					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} />
-					<DetailView pokemon={testPokemon} />
+					<DetailView pokemon={pokemon} />
 				</section>
 			</main>
 		</>
 	);
 };
 
-const testPokemon = {
+const initialPokemon = {
 	id: '395',
 	name: 'empoleon',
 	entry: {

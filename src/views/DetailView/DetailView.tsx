@@ -11,7 +11,7 @@ export const DetailView = ({ pokemon }: DetailViewProps) => {
 
 	return (
 		<>
-			<article className={`pokedex-detail${pokemon ? ' open' : ''}`}>
+			<article className="pokedex-detail">
 				<Pokeball />
 				<div className="pokedex-detail__content">
 					<img
