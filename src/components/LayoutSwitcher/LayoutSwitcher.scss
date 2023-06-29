@@ -1,0 +1,96 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/functions';
+
+.layout-filter {
+	@include d-flex(row, 0.5rem);
+	justify-content: flex-end;
+	align-items: flex-end;
+	position: relative;
+	z-index: 20;
+
+	.layout-filter__overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 21;
+		display: none;
+	}
+
+	.layout-filter__dropdown {
+		background: var(--detail-color);
+		border: none;
+		color: var(--text-color);
+		padding: 4px 6px;
+		border-radius: 4px;
+		text-transform: capitalize;
+		@include d-flex(row, 4px);
+		align-items: center;
+		font-size: fs('small');
+		font-family: $main-font-family;
+		position: relative;
+		cursor: pointer;
+		z-index: 30;
+
+		.layout-filter__dropdown__selection {
+			@include d-flex(row, 2px);
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.layout-filter__selection {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		opacity: 0;
+		@include prefix(transform, translateX(-50%));
+		width: 100%;
+		@include d-flex(column, 0);
+		justify-content: flex-start;
+		align-items: flex-end;
+		@include prefix(transition, (top 0.3s, opacity 0.3s));
+		z-index: 25;
+		pointer-events: none;
+
+		.layout-filter__selection-option {
+			@include d-flex(row, 4px);
+			width: 78.45px;
+			background: var(--light-color);
+			border: none;
+			color: var(--text-color);
+			padding: 4px 6px;
+			border: 1px solid var(--detail-color);
+			border-radius: 4px;
+			text-transform: capitalize;
+			cursor: pointer;
+			font-size: fs('small');
+			font-family: $main-font-family;
+
+			&:hover,
+			&:focus {
+				background: var(--light-hover);
+				border-color: var(--blue-color);
+			}
+
+			&:active {
+				background: var(--light-focus);
+				border-color: var(--blue-color);
+			}
+		}
+	}
+
+	&.open {
+		.layout-filter__overlay {
+			display: block;
+		}
+
+		.layout-filter__selection {
+			top: 100%;
+			opacity: 1;
+			pointer-events: all;
+		}
+	}
+}
