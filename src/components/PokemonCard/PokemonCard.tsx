@@ -1,5 +1,6 @@
 import { useFetch } from '../../hooks/useFetch';
 import { PokemonTypes, TypeTypes } from '../../interfaces';
+import { PokemonType } from '../';
 import './PokemonCard.scss';
 
 export interface PokemonCardProps {
@@ -42,7 +43,7 @@ export const PokemonCard = ({ name, url, onClickPokemon }: PokemonCardProps) => 
 
 				<div className="pokemon-card__info__types">
 					{types?.map((type: TypeTypes) => (
-						<span key={type.slot}>{type.type.name}</span>
+						<PokemonType key={type.slot} value={type.type.name} />
 					))}
 				</div>
 			</div>
