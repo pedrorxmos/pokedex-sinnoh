@@ -12,6 +12,7 @@ export const DetailView = ({ pokemon }: DetailViewProps) => {
 	return (
 		<>
 			<article className={`pokedex-detail${pokemon ? ' open' : ''}`}>
+				<Pokeball />
 				<div className="pokedex-detail__content">
 					<img
 						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
@@ -20,7 +21,7 @@ export const DetailView = ({ pokemon }: DetailViewProps) => {
 					/>
 					<div className="pokedex-detail__content__header">
 						<small className="detail__id">{`#${id}`}</small>
-						<span className="detail__name h5">{name}</span>
+						<span className="detail__name h2">{name}</span>
 						<div className="detail__types">
 							{types?.map((type: TypeTypes) => (
 								<PokemonType key={type.slot} value={type.type.name} />
@@ -29,14 +30,13 @@ export const DetailView = ({ pokemon }: DetailViewProps) => {
 					</div>
 					<div className="pokedex-detail__content__stats">
 						{stats?.map((stat: StatTypes) => (
-							<div className="detail__stat">
-								<span className="stat__title">{stat.stat.name}</span>
+							<div key={stat.stat.name} className="detail__stat">
+								<span className="stat__title">{stat.stat.name.replace('-', ' ')}</span>
 								<span className="stat__value">{stat.base_stat}</span>
 							</div>
 						))}
 					</div>
 				</div>
-				<Pokeball />
 			</article>
 		</>
 	);

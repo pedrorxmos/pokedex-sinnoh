@@ -37,34 +37,34 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 };
 
 const testPokemon = {
-	id: '389',
-	name: 'torterra',
+	id: '395',
+	name: 'empoleon',
 	entry: {
-		entry_number: 3,
+		entry_number: 9,
 		pokemon_species: {
-			name: 'torterra',
-			url: 'https://pokeapi.co/api/v2/pokemon-species/389/',
+			name: 'empoleon',
+			url: 'https://pokeapi.co/api/v2/pokemon-species/395/',
 		},
 	},
 	types: [
 		{
 			slot: 1,
 			type: {
-				name: 'grass',
-				url: 'https://pokeapi.co/api/v2/type/12/',
+				name: 'water',
+				url: 'https://pokeapi.co/api/v2/type/11/',
 			},
 		},
 		{
 			slot: 2,
 			type: {
-				name: 'ground',
-				url: 'https://pokeapi.co/api/v2/type/5/',
+				name: 'steel',
+				url: 'https://pokeapi.co/api/v2/type/9/',
 			},
 		},
 	],
 	stats: [
 		{
-			base_stat: 95,
+			base_stat: 84,
 			effort: 0,
 			stat: {
 				name: 'hp',
@@ -72,31 +72,31 @@ const testPokemon = {
 			},
 		},
 		{
-			base_stat: 109,
-			effort: 2,
+			base_stat: 86,
+			effort: 0,
 			stat: {
 				name: 'attack',
 				url: 'https://pokeapi.co/api/v2/stat/2/',
 			},
 		},
 		{
-			base_stat: 105,
-			effort: 1,
+			base_stat: 88,
+			effort: 0,
 			stat: {
 				name: 'defense',
 				url: 'https://pokeapi.co/api/v2/stat/3/',
 			},
 		},
 		{
-			base_stat: 75,
-			effort: 0,
+			base_stat: 111,
+			effort: 3,
 			stat: {
 				name: 'special-attack',
 				url: 'https://pokeapi.co/api/v2/stat/4/',
 			},
 		},
 		{
-			base_stat: 85,
+			base_stat: 101,
 			effort: 0,
 			stat: {
 				name: 'special-defense',
@@ -104,7 +104,7 @@ const testPokemon = {
 			},
 		},
 		{
-			base_stat: 56,
+			base_stat: 60,
 			effort: 0,
 			stat: {
 				name: 'speed',
