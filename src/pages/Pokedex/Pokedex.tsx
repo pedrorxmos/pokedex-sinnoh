@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { LayoutSwitcher, Pokeball, PokemonCard } from '../../components';
 import { EntryType, PokemonTypes } from '../../interfaces';
 import './Pokedex.scss';
+import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
 
 interface PokedexProps {
 	title: string;
@@ -9,8 +10,8 @@ interface PokedexProps {
 }
 
 export const Pokedex = ({ title, pokedex }: PokedexProps) => {
-	const [layout, setLayout] = useState('list');
-
+	const [layout, setLayout] = useState(useGetItem('layoutStyle', 'grid'));
+	useSetItem('layoutStyle', layout);
 	const onClickPokemon = (pokemon: PokemonTypes): void => {
 		console.log(pokemon.name);
 	};
