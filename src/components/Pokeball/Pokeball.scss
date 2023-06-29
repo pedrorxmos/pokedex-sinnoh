@@ -1,0 +1,22 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/functions';
+
+.pokeball {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	color: var(--detail-color);
+	animation: pokeballRotation 30s infinite linear;
+}
+
+@keyframes pokeballRotation {
+	0% {
+		@include prefix(transform, rotate(0deg));
+	}
+	100% {
+		@include prefix(transform, rotate(359deg));
+	}
+}

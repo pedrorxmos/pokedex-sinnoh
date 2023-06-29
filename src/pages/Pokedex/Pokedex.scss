@@ -6,6 +6,7 @@
 	padding-top: 69px;
 	padding-left: 24px;
 	padding-right: 24px;
+	padding-bottom: 32px;
 	width: 100%;
 	@include d-flex(column, 0.75rem);
 
@@ -37,10 +38,9 @@
 	}
 
 	.pokedex-container {
-		@include d-flex(row, 0.75rem);
+		@include d-flex(row, 24px);
 		justify-content: stretch;
 		align-items: stretch;
-		height: 20px;
 
 		.pokedex-list {
 			flex: 1;
@@ -52,7 +52,7 @@
 			}
 
 			&.pokedex-list__layout-grid {
-				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-columns: 1ff;
 				grid-auto-rows: 1fr;
 			}
 
@@ -63,11 +63,19 @@
 		}
 
 		.pokedex-detail {
-			background: blue;
-			width: 0px;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			background-color: var(--bg-color);
+			height: 500px;
+			width: 300px;
+			overflow: hidden;
 
 			@include mq(min-width, 960px) {
-				width: 500px;
+				position: sticky;
+				top: 72px;
+				right: 0;
+				width: 300;
 			}
 		}
 	}

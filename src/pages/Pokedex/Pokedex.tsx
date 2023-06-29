@@ -1,4 +1,4 @@
-import { PokemonCard } from '../../components';
+import { Pokeball, PokemonCard } from '../../components';
 import { useFetch } from '../../hooks/useFetch';
 import { EntryType, PokemonTypes } from '../../interfaces';
 import './Pokedex.scss';
@@ -25,7 +25,9 @@ export const Pokedex = ({ title }: PokedexProps) => {
 							<PokemonCard key={x.entry_number} name={x.pokemon_species.name} url={x.pokemon_species.url} onClickPokemon={onClickPokemon} />
 						))}
 					</article>
-					{/* <article className="pokedex-detail"></article> */}
+					<article className="pokedex-detail">
+						<Pokeball />
+					</article>
 				</section>
 			</main>
 		</>
