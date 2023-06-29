@@ -1,6 +1,6 @@
 import { Topbar } from './components';
 import './scss/global.scss';
-import { Pokedex } from './views';
+import { Pokedex } from './pages';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
