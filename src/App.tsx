@@ -9,7 +9,7 @@ function App() {
 			<Topbar />
 			<Routes>
 				<Route path="/" element={<Pokedex title="Sinnoh's Pokedex" />} />
-				<Route path="favorites" element={<Pokedex title="favorites" />} />
+				<Route path="favorites" element={<Pokedex title="Favorite Pokemons" />} />
 			</Routes>
 		</>
 	);

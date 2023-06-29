@@ -5,5 +5,11 @@ interface PokedexProps {
 }
 
 export const Pokedex = ({ title }: PokedexProps) => {
-	return <div>Pokedex - {title}</div>;
+	return (
+		<>
+			<main className="pokedex">
+				<h1>{title}</h1>
+			</main>
+		</>
+	);
 };
