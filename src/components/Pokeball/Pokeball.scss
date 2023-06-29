@@ -6,10 +6,12 @@
 	width: 100%;
 	height: auto;
 	position: absolute;
-	top: 20px;
+	top: 0px;
 	left: 0;
 	color: var(--detail-color);
 	animation: pokeballRotation 30s infinite linear;
+	z-index: 1;
+	pointer-events: none;
 }
 
 @keyframes pokeballRotation {

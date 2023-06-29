@@ -1,3 +1,45 @@
 @import '../../scss/variables';
 @import '../../scss/mixins';
 @import '../../scss/functions';
+
+.pokedex-detail {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background-color: var(--bg-color);
+	// height: 500px;
+	width: 300px;
+	overflow: hidden;
+	z-index: 5;
+	padding: 24px;
+
+	@include mq(min-width, 960px) {
+		display: block;
+		position: sticky;
+		bottom: 72px;
+		right: 0;
+		width: 300px;
+	}
+
+	.pokedex-detail__content {
+		@include d-flex(column, 0);
+		align-items: center;
+		justify-content: flex-end;
+		z-index: 6;
+
+		.pokedex-detail__content__img {
+			z-index: inherit;
+			width: 100%;
+			height: auto;
+		}
+
+		.pokedex-detail__content__header {
+			z-index: inherit;
+		}
+
+		.pokedex-detail__content__stats {
+			z-index: inherit;
+		}
+	}
+}

@@ -1,16 +1,17 @@
 import { useFetch } from '../../hooks/useFetch';
-import { PokemonTypes, TypeTypes } from '../../interfaces';
+import { EntryType, PokemonTypes, TypeTypes } from '../../interfaces';
 import { PokemonType } from '../';
 import './PokemonCard.scss';
 
 export interface PokemonCardProps {
 	name: string;
 	url: string;
+	entry: EntryType;
 	className: string;
 	onClickPokemon: (params: PokemonTypes) => void;
 }
 
-export const PokemonCard = ({ name, url, className, onClickPokemon }: PokemonCardProps) => {
+export const PokemonCard = ({ name, url, entry, className, onClickPokemon }: PokemonCardProps) => {
 	// URL exmple https://pokeapi.co/api/v2/pokemon-species/389/
 	// So I separate the url by '/', and that leaves the id in the 7th spot of the array
 
@@ -20,8 +21,9 @@ export const PokemonCard = ({ name, url, className, onClickPokemon }: PokemonCar
 
 	const onClick = () => {
 		const pokemon: PokemonTypes = {
+			id: id,
 			name: name,
-			url: url,
+			entry: entry,
 			types: types,
 			stats: stats,
 		};

@@ -1,8 +1,9 @@
-import { StatTypes, TypeTypes } from '.';
+import { EntryType, StatTypes, TypeTypes } from '.';
 
 export interface PokemonTypes {
+	id: string;
 	name: string;
-	url: string;
+	entry: EntryType;
 	types: TypeTypes[];
 	stats: StatTypes[];
 }
