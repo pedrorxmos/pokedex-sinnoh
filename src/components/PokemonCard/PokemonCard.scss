@@ -6,7 +6,7 @@
 	@include d-flex(row, 0.5rem);
 	justify-content: flex-start;
 	align-items: stretch;
-	padding: 24px;
+	padding: 24px 16px;
 	border-radius: 8px;
 	background: var(--light-color);
 	border: 1px solid var(--light-color);
@@ -16,10 +16,19 @@
 	font-family: $main-font-family;
 	cursor: pointer;
 
+	@include mq(max-width, 320px) {
+		padding: 12px;
+	}
+
 	.pokemon-card__img {
 		width: 80px;
 		height: 80px;
 		object-fit: cover;
+
+		@include mq(max-width, 320px) {
+			width: 60px;
+			height: 60px;
+		}
 	}
 
 	.pokemon-card__info {
@@ -38,7 +47,7 @@
 		}
 
 		.pokemon-card__info__types {
-			@include d-flex(row, 8px);
+			@include d-flex(row, 4px);
 		}
 	}
 

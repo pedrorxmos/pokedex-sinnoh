@@ -52,8 +52,24 @@
 			}
 
 			&.pokedex-list__layout-grid {
-				grid-template-columns: 1ff;
+				grid-template-columns: 1fr;
 				grid-auto-rows: 1fr;
+
+				@include mq(min-width, 600px) {
+					grid-template-columns: 1fr 1fr;
+				}
+
+				@include mq(min-width, 880px) {
+					grid-template-columns: 1fr 1fr 1fr;
+				}
+
+				@include mq(min-width, 960px) {
+					grid-template-columns: 1fr 1fr;
+				}
+
+				@include mq(min-width, 1280px) {
+					grid-template-columns: 1fr 1fr 1fr;
+				}
 			}
 
 			&.pokedex-list__layout-list {
@@ -63,6 +79,7 @@
 		}
 
 		.pokedex-detail {
+			display: none;
 			position: fixed;
 			bottom: 0;
 			right: 0;
@@ -72,6 +89,7 @@
 			overflow: hidden;
 
 			@include mq(min-width, 960px) {
+				display: block;
 				position: sticky;
 				top: 72px;
 				right: 0;

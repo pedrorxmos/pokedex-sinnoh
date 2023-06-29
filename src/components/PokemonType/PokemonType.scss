@@ -8,4 +8,8 @@
 	color: $grey100;
 	text-transform: uppercase;
 	font-size: fs('x-small');
+
+	@include mq(max-width, 320px) {
+		font-size: 10px;
+	}
 }
