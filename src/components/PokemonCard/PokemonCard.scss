@@ -35,5 +35,9 @@
 				text-transform: capitalize;
 			}
 		}
+
+		.pokemon-card__info__types {
+			@include d-flex(row, 8px);
+		}
 	}
 }
