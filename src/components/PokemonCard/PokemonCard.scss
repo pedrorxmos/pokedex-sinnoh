@@ -45,14 +45,14 @@
 				text-transform: capitalize;
 			}
 
-			@include mq(max-width, 360px) {
-				.info__id {
-					font-size: 10px;
-				}
-				.info__name {
-					font-size: 14px;
-				}
-			}
+			// @include mq(max-width, 360px) {
+			// 	.info__id {
+			// 		font-size: 10px;
+			// 	}
+			// 	.info__name {
+			// 		font-size: 14px;
+			// 	}
+			// }
 		}
 
 		.pokemon-card__info__types {
