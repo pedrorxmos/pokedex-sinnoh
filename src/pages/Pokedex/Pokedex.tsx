@@ -1,4 +1,4 @@
-import { PokemonCard } from '../../components/PokemonCard/PokemonCard';
+import { PokemonCard } from '../../components';
 import { useFetch } from '../../hooks/useFetch';
 import { EntryType, PokemonTypes } from '../../interfaces';
 import './Pokedex.scss';
