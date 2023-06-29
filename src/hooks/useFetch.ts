@@ -1,8 +1,14 @@
 import { useEffect, useState } from 'react';
 
+interface FetchType {
+	data: any;
+	isLoading: boolean;
+	hasError: unknown;
+}
+
 export const useFetch = (url: string) => {
 	const [state, setState] = useState({
-		data: null,
+		data: {},
 		isLoading: true,
 		hasError: null,
 	});
@@ -25,9 +31,12 @@ export const useFetch = (url: string) => {
 	useEffect(() => {
 		getFetch();
 	}, [url]);
-	return {
+
+	const res: FetchType = {
 		data: state.data,
 		isLoading: state.isLoading,
 		hasError: state.hasError,
 	};
+
+	return res;
 };
