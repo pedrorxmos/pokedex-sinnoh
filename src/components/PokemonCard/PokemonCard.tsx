@@ -6,10 +6,11 @@ import './PokemonCard.scss';
 export interface PokemonCardProps {
 	name: string;
 	url: string;
+	className: string;
 	onClickPokemon: (params: PokemonTypes) => void;
 }
 
-export const PokemonCard = ({ name, url, onClickPokemon }: PokemonCardProps) => {
+export const PokemonCard = ({ name, url, className, onClickPokemon }: PokemonCardProps) => {
 	// URL exmple https://pokeapi.co/api/v2/pokemon-species/389/
 	// So I separate the url by '/', and that leaves the id in the 7th spot of the array
 
@@ -29,7 +30,7 @@ export const PokemonCard = ({ name, url, onClickPokemon }: PokemonCardProps) => 
 	};
 
 	return (
-		<button className="pokemon-card" onClick={onClick}>
+		<button className={`pokemon-card ${className}`} onClick={onClick}>
 			<img
 				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/${id}.png`}
 				alt={`${name} sprite`}

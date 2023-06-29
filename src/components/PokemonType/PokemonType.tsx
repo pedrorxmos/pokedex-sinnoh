@@ -5,5 +5,9 @@ interface PokemonTypeProps {
 }
 
 export const PokemonType = ({ value }: PokemonTypeProps) => {
-	return <span className={`pokemon-type bg-${value}`}>{value}</span>;
+	return (
+		<div className={`pokemon-type bg-${value}`}>
+			<span>{value}</span>
+		</div>
+	);
 };

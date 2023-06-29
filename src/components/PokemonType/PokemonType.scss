@@ -9,7 +9,16 @@
 	text-transform: uppercase;
 	font-size: fs('x-small');
 
-	@include mq(max-width, 320px) {
+	@include mq(max-width, 380px) {
 		font-size: 10px;
+	}
+
+	@include mq(max-width, 360px) {
+		width: 12px;
+		height: 12px;
+		padding: 0;
+		span {
+			display: none;
+		}
 	}
 }

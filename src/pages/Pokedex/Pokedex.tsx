@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Pokeball, PokemonCard } from '../../components';
-import { useFetch } from '../../hooks/useFetch';
 import { EntryType, PokemonTypes } from '../../interfaces';
 import './Pokedex.scss';
 
@@ -11,7 +10,6 @@ interface PokedexProps {
 
 export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 	const [layout, setLayout] = useState('list');
-	console.log(layout);
 
 	const onClickPokemon = (pokemon: PokemonTypes): void => {
 		console.log(pokemon.name);
