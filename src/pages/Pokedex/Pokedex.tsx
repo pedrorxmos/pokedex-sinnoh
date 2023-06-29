@@ -1,24 +1,17 @@
 import { PokemonCard } from '../../components/PokemonCard/PokemonCard';
 import { useFetch } from '../../hooks/useFetch';
+import { EntryType, PokemonTypes } from '../../interfaces';
 import './Pokedex.scss';
 
 interface PokedexProps {
 	title: string;
 }
 
-interface EntryType {
-	entry_number: number;
-	pokemon_species: {
-		name: string;
-		url: string;
-	};
-}
-
 export const Pokedex = ({ title }: PokedexProps) => {
 	const { data } = useFetch('https://pokeapi.co/api/v2/pokedex/6/');
 	const { pokemon_entries } = data || [];
 
-	const onClickPokemon = (e: React.MouseEvent<HTMLButtonElement>, pokemon: object) => {
+	const onClickPokemon = (e: React.MouseEvent<HTMLButtonElement>, pokemon: PokemonTypes) => {
 		console.log(pokemon.name);
 	};
 

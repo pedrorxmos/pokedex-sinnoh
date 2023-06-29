@@ -1,18 +1,11 @@
 import { useFetch } from '../../hooks/useFetch';
+import { TypeTypes } from '../../interfaces';
 import './PokemonCard.scss';
 
-interface PokemonCardProps {
+export interface PokemonCardProps {
 	name: string;
 	url: string;
 	onClickPokemon: any;
-}
-
-interface TypeTypes {
-	slot: number;
-	type: {
-		name: string;
-		url: string;
-	};
 }
 
 export const PokemonCard = ({ name, url, onClickPokemon }: PokemonCardProps) => {
