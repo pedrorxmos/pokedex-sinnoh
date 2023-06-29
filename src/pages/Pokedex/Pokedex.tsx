@@ -18,6 +18,10 @@ export const Pokedex = ({ title }: PokedexProps) => {
 	const { data } = useFetch('https://pokeapi.co/api/v2/pokedex/6/');
 	const { pokemon_entries } = data || [];
 
+	const onClickPokemon = (e: React.MouseEvent<HTMLButtonElement>, pokemon: object) => {
+		console.log(pokemon.name);
+	};
+
 	return (
 		<>
 			<main className="pokedex">
@@ -25,7 +29,7 @@ export const Pokedex = ({ title }: PokedexProps) => {
 				<section className="pokedex-container">
 					<article className="pokedex-list">
 						{pokemon_entries?.slice(0, 15).map((x: EntryType) => (
-							<PokemonCard key={x.entry_number} name={x.pokemon_species.name} url={x.pokemon_species.url} />
+							<PokemonCard key={x.entry_number} name={x.pokemon_species.name} url={x.pokemon_species.url} onClickPokemon={onClickPokemon} />
 						))}
 					</article>
 					<article className="pokedex-detail"></article>
