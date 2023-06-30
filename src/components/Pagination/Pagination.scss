@@ -48,6 +48,7 @@
 
 			&.pagination__item__no-action {
 				cursor: auto;
+				pointer-events: none;
 
 				&:hover {
 					background: none;
