@@ -64,6 +64,19 @@
 			align-items: center;
 			justify-content: flex-end;
 			z-index: inherit;
+			width: 100%;
+
+			@include mq(min-width, 460px) {
+				width: 90%;
+			}
+
+			@include mq(min-width, 520px) {
+				width: 80%;
+			}
+
+			@include mq(min-width, 600px) {
+				width: auto;
+			}
 
 			.pokedex-detail__content__header {
 				z-index: inherit;
@@ -149,46 +162,49 @@
 				height: auto;
 			}
 
-			.pokedex-detail__content__header {
-				z-index: inherit;
-				@include d-flex(column, 0);
-				justify-content: center;
-				align-items: center;
-
-				.detail__name {
-					text-transform: capitalize;
-				}
-
-				.detail__types {
-					padding-top: 1rem;
-					@include d-flex(row, 6px);
-				}
-			}
-
-			.pokedex-detail__content__stats {
-				z-index: inherit;
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				grid-auto-rows: 1fr;
-				gap: 6px;
+			.pokedex-detail__content__info {
 				width: 100%;
-				padding-bottom: 4px;
-
-				.detail__stat {
-					@include d-flex(column, 4px);
-					align-items: center;
+				.pokedex-detail__content__header {
+					z-index: inherit;
+					@include d-flex(column, 0);
 					justify-content: center;
-					padding: 8px 12px;
-					border-radius: 8px;
-					background: var(--light-color);
-					color: var(--text-color);
-					box-shadow: 2px 2px 2px 0 $shadow-color;
-					width: 100%;
-					font-size: fs('x-small');
-					text-transform: uppercase;
+					align-items: center;
 
-					.stat__title {
-						font-weight: 700;
+					.detail__name {
+						text-transform: capitalize;
+					}
+
+					.detail__types {
+						padding-top: 1rem;
+						@include d-flex(row, 6px);
+					}
+				}
+
+				.pokedex-detail__content__stats {
+					z-index: inherit;
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					grid-auto-rows: 1fr;
+					gap: 6px;
+					width: 100%;
+					padding-bottom: 4px;
+
+					.detail__stat {
+						@include d-flex(column, 4px);
+						align-items: center;
+						justify-content: center;
+						padding: 8px 12px;
+						border-radius: 8px;
+						background: var(--light-color);
+						color: var(--text-color);
+						box-shadow: 2px 2px 2px 0 $shadow-color;
+						width: 100%;
+						font-size: fs('x-small');
+						text-transform: uppercase;
+
+						.stat__title {
+							font-weight: 700;
+						}
 					}
 				}
 			}
