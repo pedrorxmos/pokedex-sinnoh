@@ -1,26 +1,28 @@
+import React from 'react';
+import { useEffect } from 'react';
+
 interface MenuIconProps {
 	className?: string;
-	onToggleMenu: () => void;
+	isOpen: boolean;
+	setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const MenuButton = ({ className, onToggleMenu }: MenuIconProps) => {
+export const MenuButton = ({ className, isOpen, setIsOpen }: MenuIconProps) => {
 	const triggerAnimation = (type: string) => {
 		document.querySelector<SVGAnimateTransformElement>(`#menu-icon_top-line--${type}`)?.beginElement();
 		document.querySelector<SVGAnimateTransformElement>(`#menu-icon_bottom-line--${type}`)?.beginElement();
 	};
 
-	const onClick = () => {
-		onToggleMenu();
-
+	useEffect(() => {
 		// Timeout added for possible order changes
 		setTimeout(() => {
-			document.querySelector('.nav')?.classList.contains('open') ? triggerAnimation('open') : triggerAnimation('close');
+			triggerAnimation(isOpen ? 'open' : 'close');
 		}, 1);
-	};
+	}, [isOpen]);
 
 	return (
 		<>
-			<button className="btn nav-action menu-toggle" onClick={onClick}>
+			<button className="btn nav-action menu-toggle" onClick={() => setIsOpen(!isOpen)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
