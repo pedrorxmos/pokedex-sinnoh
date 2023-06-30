@@ -4,6 +4,7 @@ import { EntryType, PokemonTypes } from '../../interfaces';
 
 import './ListView.scss';
 import { useEffect } from 'react';
+import { Pagination } from '../../components/Pagination/Pagination';
 
 interface ListViewProps {
 	pokedex: EntryType[];
@@ -24,19 +25,20 @@ export const ListView = ({ pokedex, layout, onClickPokemon }: ListViewProps) => 
 	}, [page, maxPages, navigate]);
 
 	return (
-		<article className={`pokedex-list pokedex-list__layout-${layout}`}>
-			<button onClick={() => setSearchParams({ page: '1' })}>1</button>
-			<button onClick={() => setSearchParams({ page: '2' })}>2</button>
-			{pokedex?.slice(itemsPerPage * +page - itemsPerPage, itemsPerPage * +page).map((x: EntryType) => (
-				<PokemonCard
-					key={x.entry_number}
-					entry={x}
-					name={x.pokemon_species.name}
-					url={x.pokemon_species.url}
-					onClickPokemon={onClickPokemon}
-					className={layout}
-				/>
-			))}
+		<article className="pokedex-list">
+			<div className={`pokedex-list__layout-${layout}`}>
+				{pokedex?.slice(itemsPerPage * +page - itemsPerPage, itemsPerPage * +page).map((x: EntryType) => (
+					<PokemonCard
+						key={x.entry_number}
+						entry={x}
+						name={x.pokemon_species.name}
+						url={x.pokemon_species.url}
+						onClickPokemon={onClickPokemon}
+						className={layout}
+					/>
+				))}
+			</div>
+			<Pagination />
 		</article>
 	);
 };

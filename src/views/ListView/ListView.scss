@@ -4,14 +4,18 @@
 
 .pokedex-list {
 	flex: 1;
-	display: grid;
-	gap: 0.75rem;
+	@include d-flex(column, 12px);
+	justify-content: stretch;
 
 	@include mq(min-width, 960px) {
 		max-width: calc(100% - 300px);
 	}
 
-	&.pokedex-list__layout-grid {
+	.pokedex-list__layout-grid {
+		flex: 1;
+		display: grid;
+		gap: 0.75rem;
+
 		grid-template-columns: 1fr;
 		grid-auto-rows: 1fr;
 		gap: 0.75rem;
@@ -33,7 +37,7 @@
 		}
 	}
 
-	&.pokedex-list__layout-list {
+	.pokedex-list__layout-list {
 		grid-template-columns: 1fr;
 		grid-auto-rows: 1fr;
 		gap: 6px;
