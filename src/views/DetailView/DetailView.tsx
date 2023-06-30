@@ -14,10 +14,19 @@ export const DetailView = ({ pokemon }: DetailViewProps) => {
 		document.querySelector('.pokedex-detail')?.classList.remove('open');
 	};
 
+	const onAddFavorite = () => {
+		console.log('name');
+	};
+
 	return (
 		<>
 			<article className="pokedex-detail">
 				<Pokeball />
+
+				<button className="btn pokedex-detail__action pokedex-detail__action__favorite active" onClick={onAddFavorite} title="add to favorites">
+					<Icon name="heart" title="add to favorites" size="lg" />
+				</button>
+
 				<button className="btn pokedex-detail__action pokedex-detail__action__close" onClick={onClosePokemon}>
 					<Icon name="x" title="close pokemon" size="lg" />
 				</button>
