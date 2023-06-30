@@ -4,19 +4,22 @@ import './DetailView.scss';
 
 interface DetailViewProps {
 	pokemon?: PokemonTypes;
-	addFavorite: (params: EntryType) => void;
+	favorites: EntryType[];
+	toggleFavorite: (params: EntryType) => void;
 }
 
-export const DetailView = ({ pokemon, addFavorite }: DetailViewProps) => {
+export const DetailView = ({ pokemon, favorites, toggleFavorite }: DetailViewProps) => {
 	//Add entry when adding favorites
 	const { id, name, entry, types, stats } = pokemon || {};
+
+	const isFav = favorites.find((fav) => fav.entry_number === entry?.entry_number) !== undefined;
 
 	const onClosePokemon = () => {
 		document.querySelector('.pokedex-detail')?.classList.remove('open');
 	};
 
-	const onAddFavorite = () => {
-		if (entry) addFavorite(entry);
+	const onToggleFavorite = () => {
+		if (entry) toggleFavorite(entry);
 	};
 
 	return (
@@ -24,7 +27,11 @@ export const DetailView = ({ pokemon, addFavorite }: DetailViewProps) => {
 			<article className="pokedex-detail">
 				<Pokeball />
 
-				<button className="btn pokedex-detail__action pokedex-detail__action__favorite active" onClick={onAddFavorite} title="add to favorites">
+				<button
+					className={`btn pokedex-detail__action pokedex-detail__action__favorite${isFav ? ' active' : ''}`}
+					onClick={onToggleFavorite}
+					title="add to favorites"
+				>
 					<Icon name="heart" title="add to favorites" size="lg" />
 				</button>
 

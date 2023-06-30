@@ -14,16 +14,28 @@ function App() {
 	const [favorites, setFavorites] = useState<EntryType[]>(JSON.parse(useGetItem('favPokemon', emptyFav)));
 	useSetItem('favPokemon', JSON.stringify(favorites));
 
-	const addFavorite = (value: EntryType) => {
-		setFavorites([...favorites, value]);
+	const toggleFavorite = (value: EntryType) => {
+		let newFav = [...favorites];
+
+		if (newFav.find((fav) => fav.entry_number === value.entry_number) !== undefined)
+			newFav = newFav.filter((fav) => fav.entry_number !== value.entry_number);
+		else newFav = [...newFav, value];
+
+		setFavorites(newFav.sort((a, b) => a.entry_number - b.entry_number));
 	};
 
 	return (
 		<>
 			<Topbar />
 			<Routes>
-				<Route path="/" element={<Pokedex title="Sinnoh's Pokedex" pokedex={pokemon_entries} addFavorite={addFavorite} />} />
-				<Route path="favorites" element={<Pokedex title="Favorite Pokemons" pokedex={favorites} addFavorite={addFavorite} />} />
+				<Route
+					path="/"
+					element={<Pokedex title="Sinnoh's Pokedex" pokedex={pokemon_entries} favorites={favorites} toggleFavorite={toggleFavorite} />}
+				/>
+				<Route
+					path="favorites"
+					element={<Pokedex title="Favorite Pokemons" pokedex={favorites} favorites={favorites} toggleFavorite={toggleFavorite} />}
+				/>
 			</Routes>
 		</>
 	);
