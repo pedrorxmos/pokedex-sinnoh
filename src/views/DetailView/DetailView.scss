@@ -29,6 +29,16 @@
 		width: 300px;
 	}
 
+	.pokedex-detail__action {
+		background: none;
+		border: none;
+		position: absolute;
+		top: 24px;
+		right: 12px;
+		color: var(--text-color);
+		cursor: pointer;
+	}
+
 	.pokedex-detail__content {
 		@include d-flex(column, 1rem);
 		align-items: center;
@@ -144,6 +154,10 @@
 		padding: 24px 6px 0;
 
 		& + .pokedex-detail__overlay {
+			display: none;
+		}
+
+		.pokedex-detail__action__close {
 			display: none;
 		}
 

@@ -1,4 +1,4 @@
-import { Pokeball, PokemonType } from '../../components';
+import { Icon, Pokeball, PokemonType } from '../../components';
 import { PokemonTypes, StatTypes, TypeTypes } from '../../interfaces';
 import './DetailView.scss';
 
@@ -17,6 +17,9 @@ export const DetailView = ({ pokemon }: DetailViewProps) => {
 		<>
 			<article className="pokedex-detail">
 				<Pokeball />
+				<button className="btn pokedex-detail__action pokedex-detail__action__close" onClick={onClosePokemon}>
+					<Icon name="x" title="close pokemon" size="lg" />
+				</button>
 				<div className="pokedex-detail__content">
 					<img
 						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
