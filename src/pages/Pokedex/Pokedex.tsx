@@ -8,9 +8,10 @@ import { ListView, DetailView } from '../../views';
 interface PokedexProps {
 	title: string;
 	pokedex: EntryType[];
+	addFavorite: (params: EntryType) => void;
 }
 
-export const Pokedex = ({ title, pokedex }: PokedexProps) => {
+export const Pokedex = ({ title, pokedex, addFavorite }: PokedexProps) => {
 	const [layout, setLayout] = useState(useGetItem('layoutStyle', 'grid'));
 	useSetItem('layoutStyle', layout);
 
@@ -39,7 +40,7 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 				</div>
 				<section className="pokedex-container">
 					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} />
-					<DetailView pokemon={pokemon} />
+					<DetailView pokemon={pokemon} addFavorite={addFavorite} />
 				</section>
 			</main>
 		</>

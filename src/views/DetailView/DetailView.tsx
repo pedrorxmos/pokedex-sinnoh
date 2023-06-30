@@ -1,21 +1,22 @@
 import { Icon, Pokeball, PokemonType } from '../../components';
-import { PokemonTypes, StatTypes, TypeTypes } from '../../interfaces';
+import { EntryType, PokemonTypes, StatTypes, TypeTypes } from '../../interfaces';
 import './DetailView.scss';
 
 interface DetailViewProps {
 	pokemon?: PokemonTypes;
+	addFavorite: (params: EntryType) => void;
 }
 
-export const DetailView = ({ pokemon }: DetailViewProps) => {
+export const DetailView = ({ pokemon, addFavorite }: DetailViewProps) => {
 	//Add entry when adding favorites
-	const { id, name, types, stats } = pokemon || {};
+	const { id, name, entry, types, stats } = pokemon || {};
 
 	const onClosePokemon = () => {
 		document.querySelector('.pokedex-detail')?.classList.remove('open');
 	};
 
 	const onAddFavorite = () => {
-		console.log('name');
+		if (entry) addFavorite(entry);
 	};
 
 	return (
