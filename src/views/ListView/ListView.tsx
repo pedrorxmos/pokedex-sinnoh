@@ -40,15 +40,7 @@ export const ListView = ({ pokedex, layout, onClickPokemon }: ListViewProps) => 
 					/>
 				))}
 			</div>
-			<Pagination
-				page={+page}
-				itemsPerPage={itemsPerPage}
-				maxPages={maxPages}
-				itemsLength={pokedex?.length}
-				offset={offset}
-				limit={limit}
-				setSearchParams={setSearchParams}
-			/>
+			<Pagination page={+page} maxPages={maxPages} itemsLength={pokedex?.length} offset={offset} limit={limit} setSearchParams={setSearchParams} />
 		</article>
 	);
 };
