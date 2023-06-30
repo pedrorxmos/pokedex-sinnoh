@@ -1,7 +1,9 @@
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { PokemonCard } from '../../components';
 import { EntryType, PokemonTypes } from '../../interfaces';
 
 import './ListView.scss';
+import { useEffect } from 'react';
 
 interface ListViewProps {
 	pokedex: EntryType[];
@@ -10,12 +12,22 @@ interface ListViewProps {
 }
 
 export const ListView = ({ pokedex, layout, onClickPokemon }: ListViewProps) => {
+	const navigate = useNavigate();
+
+	const [searchParams, setSearchParams] = useSearchParams();
+
 	const itemsPerPage = 30;
-	const page = 7;
+	const maxPages = Math.ceil(pokedex?.length / itemsPerPage);
+	const page = searchParams.get('page') || 1;
+	useEffect(() => {
+		if (+page <= 1 || +page >= maxPages) navigate('./');
+	}, [page, maxPages, navigate]);
 
 	return (
 		<article className={`pokedex-list pokedex-list__layout-${layout}`}>
-			{pokedex?.slice(itemsPerPage * page - itemsPerPage, itemsPerPage * page).map((x: EntryType) => (
+			<button onClick={() => setSearchParams({ page: '1' })}>1</button>
+			<button onClick={() => setSearchParams({ page: '2' })}>2</button>
+			{pokedex?.slice(itemsPerPage * +page - itemsPerPage, itemsPerPage * +page).map((x: EntryType) => (
 				<PokemonCard
 					key={x.entry_number}
 					entry={x}
