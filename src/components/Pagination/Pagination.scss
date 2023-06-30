@@ -13,12 +13,14 @@
 		@include d-flex(row, 3px);
 		justify-content: center;
 		align-items: center;
+		font-size: fs('x-small');
 
-		@include mq(min-width, 340px) {
+		@include mq(min-width, 320px) {
 			gap: 6px;
+			font-size: fs('small');
 		}
 
-		@include mq(min-width, 340px) {
+		@include mq(min-width, 355px) {
 			gap: 10px;
 		}
 
@@ -33,7 +35,7 @@
 			font-weight: 400;
 			padding: 2px 4px;
 
-			font-size: fs('x-small');
+			font-size: inherit;
 			color: var(--text-color);
 
 			&:hover {
