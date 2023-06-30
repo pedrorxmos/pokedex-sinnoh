@@ -9,6 +9,10 @@ interface DetailViewProps {
 export const DetailView = ({ pokemon }: DetailViewProps) => {
 	const { id, name, entry, types, stats } = pokemon || {};
 
+	const onClosePokemon = () => {
+		document.querySelector('.pokedex-detail')?.classList.remove('open');
+	};
+
 	return (
 		<>
 			<article className="pokedex-detail">
@@ -40,7 +44,7 @@ export const DetailView = ({ pokemon }: DetailViewProps) => {
 					</div>
 				</div>
 			</article>
-			<div className="pokedex-detail__overlay"></div>
+			<div className="pokedex-detail__overlay" onClick={onClosePokemon}></div>
 		</>
 	);
 };

@@ -17,7 +17,7 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 	const [pokemon, setPokemon] = useState(initialPokemon);
 
 	const onClickPokemon = (value: PokemonTypes): void => {
-		if (pokemon.id === value.id) return;
+		if (pokemon.id === value.id && document.querySelector('.pokedex-detail')?.classList.contains('open')) return;
 
 		document.querySelector('.pokedex-detail')?.classList.remove('open');
 		setTimeout(() => {
