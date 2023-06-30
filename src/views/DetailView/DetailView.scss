@@ -153,6 +153,10 @@
 		@include prefix(transform, (translateY(0%)));
 		padding: 24px 6px 0;
 
+		@include mq(min-width, 1440px) {
+			width: 33.3333%;
+		}
+
 		& + .pokedex-detail__overlay {
 			display: none;
 		}
