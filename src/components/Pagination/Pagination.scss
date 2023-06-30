@@ -3,7 +3,7 @@
 @import '../../scss/functions';
 
 .pagination {
-	@include d-flex(row, 0);
+	@include d-flex(column, 1rem);
 	justify-content: center;
 	align-items: center;
 	padding: 24px 0;
@@ -47,9 +47,16 @@
 	}
 
 	.pagination__counter {
-		position: absolute;
-		top: 50%;
-		right: 0;
-		@include prefix(transform, translateY(-50%));
+		position: static;
+		opacity: 0.5;
+	}
+
+	@include mq(min-width, 600px) {
+		.pagination__counter {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			@include prefix(transform, translateY(-50%));
+		}
 	}
 }
