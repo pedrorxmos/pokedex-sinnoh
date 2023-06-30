@@ -20,14 +20,16 @@ export const ListView = ({ pokedex, layout, onClickPokemon }: ListViewProps) => 
 	const itemsPerPage = 30;
 	const maxPages = Math.ceil(pokedex?.length / itemsPerPage);
 	const page = searchParams.get('page') || 1;
+	const [offset, limit] = [itemsPerPage * +page - itemsPerPage, itemsPerPage * +page];
+
 	useEffect(() => {
-		if (+page <= 1 || +page >= maxPages) navigate('./');
+		if (+page <= 1 || +page > maxPages) navigate('./');
 	}, [page, maxPages, navigate]);
 
 	return (
 		<article className="pokedex-list">
 			<div className={`pokedex-list__layout-${layout}`}>
-				{pokedex?.slice(itemsPerPage * +page - itemsPerPage, itemsPerPage * +page).map((x: EntryType) => (
+				{pokedex?.slice(offset, limit).map((x: EntryType) => (
 					<PokemonCard
 						key={x.entry_number}
 						entry={x}
@@ -38,7 +40,15 @@ export const ListView = ({ pokedex, layout, onClickPokemon }: ListViewProps) => 
 					/>
 				))}
 			</div>
-			<Pagination />
+			<Pagination
+				page={+page}
+				itemsPerPage={itemsPerPage}
+				maxPages={maxPages}
+				itemsLength={pokedex?.length}
+				offset={offset}
+				limit={limit}
+				setSearchParams={setSearchParams}
+			/>
 		</article>
 	);
 };
