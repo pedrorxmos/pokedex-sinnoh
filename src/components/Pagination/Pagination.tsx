@@ -39,7 +39,7 @@ export const Pagination = ({ page, maxPages, itemsLength, offset, limit, setSear
 						if (x >= page + 2 || x <= page - 2) return;
 
 						return (
-							<button onClick={() => onClickPage(x)} className={`btn pagination__item${page === x ? ' active' : ''}`}>
+							<button key={x} onClick={() => onClickPage(x)} className={`btn pagination__item${page === x ? ' active' : ''}`}>
 								{x}
 							</button>
 						);
