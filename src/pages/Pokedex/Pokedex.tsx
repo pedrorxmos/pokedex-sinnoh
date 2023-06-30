@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { LayoutSwitcher, Pokeball, PokemonCard } from '../../components';
+import { LayoutSwitcher } from '../../components';
 import { EntryType, PokemonTypes } from '../../interfaces';
 import './Pokedex.scss';
 import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
+import { ListView, DetailView } from '../../views';
 
 interface PokedexProps {
 	title: string;
@@ -12,8 +13,19 @@ interface PokedexProps {
 export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 	const [layout, setLayout] = useState(useGetItem('layoutStyle', 'grid'));
 	useSetItem('layoutStyle', layout);
-	const onClickPokemon = (pokemon: PokemonTypes): void => {
-		console.log(pokemon.name);
+
+	const [pokemon, setPokemon] = useState(initialPokemon);
+
+	const onClickPokemon = (value: PokemonTypes): void => {
+		if (pokemon.id === value.id && document.querySelector('.pokedex-detail')?.classList.contains('open')) return;
+
+		document.querySelector('.pokedex-detail')?.classList.remove('open');
+		setTimeout(() => {
+			setPokemon(value);
+		}, 210);
+		setTimeout(() => {
+			document.querySelector('.pokedex-detail')?.classList.add('open');
+		}, 500);
 	};
 
 	return (
@@ -26,22 +38,88 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 					</div>
 				</div>
 				<section className="pokedex-container">
-					<article className={`pokedex-list pokedex-list__layout-${layout}`}>
-						{pokedex?.slice(0, 15).map((x: EntryType) => (
-							<PokemonCard
-								key={x.entry_number}
-								name={x.pokemon_species.name}
-								url={x.pokemon_species.url}
-								onClickPokemon={onClickPokemon}
-								className={layout}
-							/>
-						))}
-					</article>
-					<article className="pokedex-detail">
-						<Pokeball />
-					</article>
+					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} />
+					<DetailView pokemon={pokemon} />
 				</section>
 			</main>
 		</>
 	);
+};
+
+const initialPokemon = {
+	id: '395',
+	name: 'empoleon',
+	entry: {
+		entry_number: 9,
+		pokemon_species: {
+			name: 'empoleon',
+			url: 'https://pokeapi.co/api/v2/pokemon-species/395/',
+		},
+	},
+	types: [
+		{
+			slot: 1,
+			type: {
+				name: 'water',
+				url: 'https://pokeapi.co/api/v2/type/11/',
+			},
+		},
+		{
+			slot: 2,
+			type: {
+				name: 'steel',
+				url: 'https://pokeapi.co/api/v2/type/9/',
+			},
+		},
+	],
+	stats: [
+		{
+			base_stat: 84,
+			effort: 0,
+			stat: {
+				name: 'hp',
+				url: 'https://pokeapi.co/api/v2/stat/1/',
+			},
+		},
+		{
+			base_stat: 86,
+			effort: 0,
+			stat: {
+				name: 'attack',
+				url: 'https://pokeapi.co/api/v2/stat/2/',
+			},
+		},
+		{
+			base_stat: 88,
+			effort: 0,
+			stat: {
+				name: 'defense',
+				url: 'https://pokeapi.co/api/v2/stat/3/',
+			},
+		},
+		{
+			base_stat: 111,
+			effort: 3,
+			stat: {
+				name: 'special-attack',
+				url: 'https://pokeapi.co/api/v2/stat/4/',
+			},
+		},
+		{
+			base_stat: 101,
+			effort: 0,
+			stat: {
+				name: 'special-defense',
+				url: 'https://pokeapi.co/api/v2/stat/5/',
+			},
+		},
+		{
+			base_stat: 60,
+			effort: 0,
+			stat: {
+				name: 'speed',
+				url: 'https://pokeapi.co/api/v2/stat/6/',
+			},
+		},
+	],
 };
