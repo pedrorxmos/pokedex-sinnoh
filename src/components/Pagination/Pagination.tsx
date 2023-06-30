@@ -47,8 +47,8 @@ export const Pagination = ({ page, maxPages, itemsLength, offset, limit, setSear
 
 					{page < maxPages - 2 && <button className="btn pagination__item pagination__item__no-action">...</button>}
 
-					<button onClick={() => onClickPage(maxPages)} className={`btn pagination__item${page === 7 ? ' active' : ''}`}>
-						7
+					<button onClick={() => onClickPage(maxPages)} className={`btn pagination__item${page === maxPages ? ' active' : ''}`}>
+						{maxPages}
 					</button>
 
 					{page < maxPages && (
