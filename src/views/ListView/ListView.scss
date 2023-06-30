@@ -38,6 +38,7 @@
 	}
 
 	.pokedex-list__layout-list {
+		display: grid;
 		grid-template-columns: 1fr;
 		grid-auto-rows: 1fr;
 		gap: 6px;
