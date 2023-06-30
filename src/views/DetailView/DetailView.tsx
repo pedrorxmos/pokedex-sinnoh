@@ -7,7 +7,8 @@ interface DetailViewProps {
 }
 
 export const DetailView = ({ pokemon }: DetailViewProps) => {
-	const { id, name, entry, types, stats } = pokemon || {};
+	//Add entry when adding favorites
+	const { id, name, types, stats } = pokemon || {};
 
 	const onClosePokemon = () => {
 		document.querySelector('.pokedex-detail')?.classList.remove('open');
