@@ -40,7 +40,7 @@ export const Pokedex = ({ title, pokedex, favorites, toggleFavorite }: PokedexPr
 					</div>
 				</div>
 				<section className="pokedex-container">
-					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} />
+					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} currentPokemon={pokemon} />
 					<DetailView pokemon={pokemon} favorites={favorites} toggleFavorite={toggleFavorite} />
 				</section>
 			</main>

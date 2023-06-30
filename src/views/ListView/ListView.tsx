@@ -10,9 +10,10 @@ interface ListViewProps {
 	pokedex: EntryType[];
 	layout: string;
 	onClickPokemon: (params: PokemonTypes) => void;
+	currentPokemon: PokemonTypes;
 }
 
-export const ListView = ({ pokedex, layout, onClickPokemon }: ListViewProps) => {
+export const ListView = ({ pokedex, layout, onClickPokemon, currentPokemon }: ListViewProps) => {
 	const navigate = useNavigate();
 
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -36,7 +37,7 @@ export const ListView = ({ pokedex, layout, onClickPokemon }: ListViewProps) => 
 						name={x.pokemon_species.name}
 						url={x.pokemon_species.url}
 						onClickPokemon={onClickPokemon}
-						className={layout}
+						className={`${layout}${currentPokemon.entry.entry_number === x.entry_number ? ' active' : ''}`}
 					/>
 				))}
 			</div>
