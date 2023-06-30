@@ -10,9 +10,12 @@ interface ListViewProps {
 }
 
 export const ListView = ({ pokedex, layout, onClickPokemon }: ListViewProps) => {
+	const itemsPerPage = 30;
+	const page = 7;
+
 	return (
 		<article className={`pokedex-list pokedex-list__layout-${layout}`}>
-			{pokedex?.slice(0, 18).map((x: EntryType) => (
+			{pokedex?.slice(itemsPerPage * page - itemsPerPage, itemsPerPage * page).map((x: EntryType) => (
 				<PokemonCard
 					key={x.entry_number}
 					entry={x}
