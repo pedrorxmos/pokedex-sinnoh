@@ -31,7 +31,6 @@
 
 	@include mq(min-width, 960px) {
 		width: 100%;
-		top: 0;
 		left: 50%;
 	}
 }

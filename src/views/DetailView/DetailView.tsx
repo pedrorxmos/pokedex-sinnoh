@@ -1,23 +1,40 @@
 import { Icon, Pokeball, PokemonType } from '../../components';
-import { PokemonTypes, StatTypes, TypeTypes } from '../../interfaces';
+import { EntryType, PokemonTypes, StatTypes, TypeTypes } from '../../interfaces';
 import './DetailView.scss';
 
 interface DetailViewProps {
 	pokemon?: PokemonTypes;
+	favorites: EntryType[];
+	toggleFavorite: (params: EntryType) => void;
 }
 
-export const DetailView = ({ pokemon }: DetailViewProps) => {
+export const DetailView = ({ pokemon, favorites, toggleFavorite }: DetailViewProps) => {
 	//Add entry when adding favorites
-	const { id, name, types, stats } = pokemon || {};
+	const { id, name, entry, types, stats } = pokemon || {};
+
+	const isFav = favorites.find((fav) => fav.entry_number === entry?.entry_number) !== undefined;
 
 	const onClosePokemon = () => {
 		document.querySelector('.pokedex-detail')?.classList.remove('open');
+	};
+
+	const onToggleFavorite = () => {
+		if (entry) toggleFavorite(entry);
 	};
 
 	return (
 		<>
 			<article className="pokedex-detail">
 				<Pokeball />
+
+				<button
+					className={`btn pokedex-detail__action pokedex-detail__action__favorite${isFav ? ' active' : ''}`}
+					onClick={onToggleFavorite}
+					title="add to favorites"
+				>
+					<Icon name="heart" title="add to favorites" size="lg" />
+				</button>
+
 				<button className="btn pokedex-detail__action pokedex-detail__action__close" onClick={onClosePokemon}>
 					<Icon name="x" title="close pokemon" size="lg" />
 				</button>

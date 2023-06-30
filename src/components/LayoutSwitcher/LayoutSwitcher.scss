@@ -45,10 +45,8 @@
 	.layout-filter__selection {
 		position: absolute;
 		top: 0;
-		left: 50%;
+		right: 0;
 		opacity: 0;
-		@include prefix(transform, translateX(-50%));
-		width: 100%;
 		@include d-flex(column, 0);
 		justify-content: flex-start;
 		align-items: flex-end;
@@ -58,17 +56,27 @@
 
 		.layout-filter__selection-option {
 			@include d-flex(row, 4px);
-			width: 78.45px;
+			width: 78.25px * 1.5;
 			background: var(--light-color);
 			border: none;
 			color: var(--text-color);
-			padding: 4px 6px;
+			padding: 8px 12px;
 			border: 1px solid var(--detail-color);
 			border-radius: 4px;
 			text-transform: capitalize;
 			cursor: pointer;
 			font-size: fs('small');
 			font-family: $main-font-family;
+
+			@include mq(min-width, 600px) {
+				width: 78.25px * 1.25;
+				padding: 6px 9px;
+			}
+
+			@include mq(min-width, 1280px) {
+				width: 78.25px;
+				padding: 4px 6px;
+			}
 
 			&:hover,
 			&:focus {
