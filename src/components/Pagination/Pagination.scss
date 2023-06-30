@@ -10,9 +10,19 @@
 	position: relative;
 
 	.pagination__list {
-		@include d-flex(row, 12px);
+		@include d-flex(row, 3px);
 		justify-content: center;
 		align-items: center;
+		font-size: fs('x-small');
+
+		@include mq(min-width, 320px) {
+			gap: 6px;
+			font-size: fs('small');
+		}
+
+		@include mq(min-width, 355px) {
+			gap: 10px;
+		}
 
 		.pagination__item {
 			background: none;
@@ -20,10 +30,12 @@
 			@include d-flex(row, 0);
 			justify-content: center;
 			align-items: center;
-			aspect-ratio: 1 / 1;
 			border-radius: 6px;
 			cursor: pointer;
 			font-weight: 400;
+			padding: 2px 4px;
+
+			font-size: inherit;
 			color: var(--text-color);
 
 			&:hover {
@@ -38,6 +50,7 @@
 
 			&.pagination__item__no-action {
 				cursor: auto;
+				pointer-events: none;
 
 				&:hover {
 					background: none;

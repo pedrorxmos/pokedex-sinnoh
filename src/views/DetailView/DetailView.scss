@@ -44,6 +44,7 @@
 		align-items: center;
 		justify-content: flex-end;
 		z-index: inherit;
+		opacity: 0;
 
 		@include mq(min-width, 600px) {
 			flex-direction: row;
@@ -138,6 +139,10 @@
 	&.open {
 		@include prefix(transform, (translateY(0%)));
 
+		.pokedex-detail__content {
+			opacity: 1;
+		}
+
 		& + .pokedex-detail__overlay {
 			display: block;
 		}
@@ -149,9 +154,10 @@
 		bottom: 32px;
 		right: 0;
 		width: 300px;
-		z-index: 200;
+		z-index: 2;
 		@include prefix(transform, (translateY(0%)));
 		padding: 24px 6px 0;
+		margin-bottom: 84px;
 
 		@include mq(min-width, 1440px) {
 			width: 33.3333%;
