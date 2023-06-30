@@ -6,6 +6,7 @@
 	flex: 1;
 	@include d-flex(column, 12px);
 	justify-content: stretch;
+	align-self: flex-start;
 
 	@include mq(min-width, 960px) {
 		max-width: calc(100% - 300px);
