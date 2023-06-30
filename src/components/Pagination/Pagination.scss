@@ -1,0 +1,62 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+@import '../../scss/functions';
+
+.pagination {
+	@include d-flex(column, 1rem);
+	justify-content: center;
+	align-items: center;
+	padding: 24px 0;
+	position: relative;
+
+	.pagination__list {
+		@include d-flex(row, 12px);
+		justify-content: center;
+		align-items: center;
+
+		.pagination__item {
+			background: none;
+			border: none;
+			@include d-flex(row, 0);
+			justify-content: center;
+			align-items: center;
+			aspect-ratio: 1 / 1;
+			border-radius: 6px;
+			cursor: pointer;
+			font-weight: 400;
+			color: var(--text-color);
+
+			&:hover {
+				background: var(--detail-color);
+			}
+
+			&.active {
+				background-color: var(--blue-color);
+				color: $grey100;
+				font-weight: 600;
+			}
+
+			&.pagination__item__no-action {
+				cursor: auto;
+
+				&:hover {
+					background: none;
+				}
+			}
+		}
+	}
+
+	.pagination__counter {
+		position: static;
+		opacity: 0.5;
+	}
+
+	@include mq(min-width, 600px) {
+		.pagination__counter {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			@include prefix(transform, translateY(-50%));
+		}
+	}
+}
