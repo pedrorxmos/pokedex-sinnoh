@@ -3,22 +3,35 @@
 @import '../../scss/functions';
 
 .pokeball {
-	width: 100%;
+	width: 70%;
 	height: auto;
 	position: absolute;
-	top: 0px;
-	left: 0;
+	top: 72px;
+	left: 50%;
+	@include prefix(transform, translateX(-50%));
 	color: var(--detail-color);
-	animation: pokeballRotation 30s infinite linear;
 	z-index: 0;
 	pointer-events: none;
-}
 
-@keyframes pokeballRotation {
-	0% {
-		@include prefix(transform, rotate(0deg));
+	@include mq(min-width, 460px) {
+		width: 60%;
 	}
-	100% {
-		@include prefix(transform, rotate(359deg));
+
+	@include mq(min-width, 520px) {
+		width: 50%;
+	}
+
+	@include mq(min-width, 600px) {
+		left: 35%;
+	}
+
+	@include mq(min-width, 700px) {
+		width: 40%;
+	}
+
+	@include mq(min-width, 960px) {
+		width: 100%;
+		top: 0;
+		left: 50%;
 	}
 }

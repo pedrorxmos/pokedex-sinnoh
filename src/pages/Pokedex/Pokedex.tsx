@@ -25,7 +25,7 @@ export const Pokedex = ({ title, pokedex }: PokedexProps) => {
 		}, 210);
 		setTimeout(() => {
 			document.querySelector('.pokedex-detail')?.classList.add('open');
-		}, 400);
+		}, 500);
 	};
 
 	return (
