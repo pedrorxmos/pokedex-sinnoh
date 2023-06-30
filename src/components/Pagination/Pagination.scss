@@ -1,3 +1,24 @@
 @import '../../scss/variables';
 @import '../../scss/mixins';
 @import '../../scss/functions';
+
+.pagination {
+	@include d-flex(row, 0);
+	justify-content: center;
+	align-items: center;
+	padding: 24px 0;
+	position: relative;
+
+	.pagination__list {
+		@include d-flex(row, 12px);
+		justify-content: center;
+		align-items: center;
+	}
+
+	.pagination__counter {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		@include prefix(transform, translateY(-50%));
+	}
+}
