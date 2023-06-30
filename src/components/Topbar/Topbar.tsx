@@ -7,15 +7,16 @@ import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
 export const Topbar = () => {
 	const [theme, setTheme] = useState<string>(useGetItem('theme', 'light'));
 	useSetItem('theme', theme);
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 	const root = document.querySelector(':root');
 
-	const onToggleMenu = (): void => {
-		document.querySelector('.nav')?.classList.toggle('open');
-	};
+	// const onToggleMenu = (): void => {
+	// 	document.querySelector('.nav')?.classList.toggle('open');
+	// };
 
-	const onCloseMenu = () => {
-		document.querySelector('.nav')?.classList.remove('open');
-	};
+	// const onCloseMenu = () => {
+	// 	document.querySelector('.nav')?.classList.remove('open');
+	// };
 
 	const onThemeSwitch = () => {
 		theme === 'dark' ? setTheme('light') : setTheme('dark');
@@ -39,27 +40,27 @@ export const Topbar = () => {
 					Pokedex
 				</Link>
 
-				<nav className="nav">
+				<nav className={`nav${isOpen ? ' open' : ''}`}>
 					<button className={`btn nav-action theme-toggle ${theme}`} title="switch theme" onClick={onThemeSwitch}>
 						<Icon name="sun" title="switch to dark theme" className="theme-light" size="md" />
 						<Icon name="moon" title="switch to light theme" className="theme-dark" size="md" />
 					</button>
 					<ul className="nav-list">
 						<li className="nav__item">
-							<Link to="/" className="nav__link" onClick={onCloseMenu}>
+							<Link to="/" className="nav__link" onClick={() => setIsOpen(false)}>
 								Pokedex
 								<Icon name="arrow-right" title="go to pokedex" size="md" />
 							</Link>
 						</li>
 						<li className="nav__item">
-							<Link to="/favorites" className="nav__link" onClick={onCloseMenu}>
+							<Link to="/favorites" className="nav__link" onClick={() => setIsOpen(false)}>
 								<span>Favorites</span>
 								<Icon name="arrow-right" title="go to favorites" size="md" />
 							</Link>
 						</li>
 					</ul>
 
-					<MenuButton onToggleMenu={onToggleMenu} />
+					<MenuButton setIsOpen={setIsOpen} isOpen={isOpen} />
 				</nav>
 			</header>
 		</>
