@@ -35,12 +35,12 @@ const svgContent: object = {
 	),
 	'chevron-right': (
 		<>
-			<polyline points="18 15 12 9 6 15"></polyline>
+			<polyline points="9 18 15 12 9 6"></polyline>
 		</>
 	),
 	'chevron-up': (
 		<>
-			<polyline points="6 9 12 15 18 9"></polyline>
+			<polyline points="18 15 12 9 6 15"></polyline>
 		</>
 	),
 	grid: (
