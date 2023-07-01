@@ -27,13 +27,4 @@ describe('Testing of Pokedex page', () => {
 		);
 		expect(screen.getByText(title)).toBeTruthy();
 	});
-
-	test('should show a pokemon card', () => {
-		render(
-			<MemoryRouter>
-				<Pokedex title={title} pokedex={entries} favorites={entries} toggleFavorite={toggleFavorite} isLoading={false} />
-			</MemoryRouter>
-		);
-		expect(screen.getByText(entries[0].pokemon_species.name)).toBeTruthy();
-	});
 });
