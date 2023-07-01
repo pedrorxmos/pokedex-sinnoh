@@ -33,6 +33,7 @@ export const DetailView = ({ pokemon, favorites, toggleFavorite, isOpen, setOpen
 				<Pokeball />
 
 				<button
+					role="action-favorite"
 					className={`btn pokedex-detail__action pokedex-detail__action__favorite${isFav ? ' active' : ''}`}
 					onClick={onToggleFavorite}
 					title="add to favorites"
@@ -40,7 +41,7 @@ export const DetailView = ({ pokemon, favorites, toggleFavorite, isOpen, setOpen
 					<Icon name="heart" title="add to favorites" size="lg" />
 				</button>
 
-				<button className="btn pokedex-detail__action pokedex-detail__action__close" onClick={onClosePokemon}>
+				<button role="action-close" className="btn pokedex-detail__action pokedex-detail__action__close" onClick={onClosePokemon}>
 					<Icon name="x" title="close pokemon" size="lg" />
 				</button>
 				<div className="pokedex-detail__content">

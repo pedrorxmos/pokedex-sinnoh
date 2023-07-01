@@ -1,7 +1,7 @@
 import { MemoryRouter } from 'react-router-dom';
 import { EntryType, PokemonTypes } from '../../src/interfaces';
 import React, { useState } from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { DetailView } from '../../src/views';
 
 describe('Testing of DetailView view', () => {
@@ -147,5 +147,45 @@ describe('Testing of DetailView view', () => {
 		);
 		const img = screen.getByRole('pokedex-detail__content__img') as HTMLImageElement;
 		expect(img.src).toBe(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/395.png`);
+	});
+
+	test('should trigger toggleFavorite', () => {
+		const toggleFavorite = jest.fn();
+		render(
+			<MemoryRouter>
+				<DetailView pokemon={currentPokemon} favorites={entries} toggleFavorite={toggleFavorite} isOpen={true} setOpen={funct} />
+			</MemoryRouter>
+		);
+		const fav = screen.getByRole('action-favorite');
+		fireEvent.click(fav);
+
+		expect(toggleFavorite).toBeCalled();
+	});
+
+	test('should trigger toggleFavorite with entry', () => {
+		const toggleFavorite = jest.fn();
+		render(
+			<MemoryRouter>
+				<DetailView pokemon={currentPokemon} favorites={entries} toggleFavorite={toggleFavorite} isOpen={true} setOpen={funct} />
+			</MemoryRouter>
+		);
+		const fav = screen.getByRole('action-favorite');
+		fireEvent.click(fav);
+
+		expect(toggleFavorite).toBeCalledWith(currentPokemon.entry);
+	});
+
+	test('should trigger setOpen with false', () => {
+		const setOpen = jest.fn();
+
+		render(
+			<MemoryRouter>
+				<DetailView pokemon={currentPokemon} favorites={entries} toggleFavorite={funct} isOpen={true} setOpen={setOpen} />
+			</MemoryRouter>
+		);
+		const close = screen.getByRole('action-close');
+		fireEvent.click(close);
+
+		expect(setOpen).toBeCalledWith(false);
 	});
 });
