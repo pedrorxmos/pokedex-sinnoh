@@ -11,9 +11,10 @@ interface ListViewProps {
 	layout: string;
 	onClickPokemon: (params: PokemonTypes) => void;
 	currentPokemon: PokemonTypes;
+	isDetailOpen: boolean;
 }
 
-export const ListView = ({ pokedex, layout, onClickPokemon, currentPokemon }: ListViewProps) => {
+export const ListView = ({ pokedex, layout, onClickPokemon, currentPokemon, isDetailOpen }: ListViewProps) => {
 	const navigate = useNavigate();
 
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -22,6 +23,20 @@ export const ListView = ({ pokedex, layout, onClickPokemon, currentPokemon }: Li
 	const maxPages = Math.ceil(pokedex?.length / itemsPerPage);
 	const page = searchParams.get('page') || 1;
 	const [offset, limit] = [itemsPerPage * +page - itemsPerPage, itemsPerPage * +page];
+
+	const isActive = (value: EntryType) => {
+		return currentPokemon.entry.entry_number === value.entry_number && isDetailOpen;
+	};
+
+	const entry: EntryType = {
+		entry_number: 1,
+		pokemon_species: {
+			name: 'turtwig',
+			url: '',
+		},
+	};
+
+	console.log(isActive(entry), document.querySelector('.pokedex-detail')?.className.indexOf('open'));
 
 	useEffect(() => {
 		if (+page <= 1 || +page > maxPages) navigate('./');
@@ -37,7 +52,7 @@ export const ListView = ({ pokedex, layout, onClickPokemon, currentPokemon }: Li
 						name={x.pokemon_species.name}
 						url={x.pokemon_species.url}
 						onClickPokemon={onClickPokemon}
-						className={`${layout}${currentPokemon.entry.entry_number === x.entry_number ? ' active' : ''}`}
+						className={`${layout}${isActive(x) ? ' active' : ''}`}
 					/>
 				))}
 			</div>
