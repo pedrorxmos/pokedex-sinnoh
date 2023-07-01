@@ -35,6 +35,7 @@ export const PokemonCard = ({ name, url, entry, className, onClickPokemon }: Pok
 	return (
 		<button role="pokemon-card" className={`pokemon-card ${className}`} onClick={onClick}>
 			<img
+				role="pokemon-card__img"
 				src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/${id}.png`}
 				alt={`${name} sprite`}
 				className="pokemon-card__img"

@@ -35,4 +35,16 @@ describe('Testing of PokemonType component', () => {
 		fireEvent.click(card);
 		expect(onClickPokemon).toBeCalled();
 	});
+
+	test('should render pokemon sprite', () => {
+		const onClickPokemon = jest.fn();
+
+		render(
+			<MemoryRouter>
+				<PokemonCard name={entry.pokemon_species.name} url={entry.pokemon_species.url} entry={entry} className="" onClickPokemon={onClickPokemon} />
+			</MemoryRouter>
+		);
+		const img = screen.getByRole('pokemon-card__img') as HTMLImageElement;
+		expect(img.src).toBe(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/395.png`);
+	});
 });
