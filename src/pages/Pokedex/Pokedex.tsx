@@ -12,9 +12,10 @@ interface PokedexProps {
 	pokedex: EntryType[];
 	favorites: EntryType[];
 	toggleFavorite: (params: EntryType) => void;
+	isLoading: boolean;
 }
 
-export const Pokedex = ({ title, pokedex, favorites, toggleFavorite }: PokedexProps) => {
+export const Pokedex = ({ title, pokedex, favorites, toggleFavorite, isLoading }: PokedexProps) => {
 	const [layout, setLayout] = useState(useGetItem('layoutStyle', 'grid'));
 	useSetItem('layoutStyle', layout);
 
@@ -47,7 +48,12 @@ export const Pokedex = ({ title, pokedex, favorites, toggleFavorite }: PokedexPr
 					</div>
 				</div>
 				<section className="pokedex-container">
-					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} currentPokemon={pokemon} isDetailOpen={isDetailOpen} />
+					{isLoading && <p>Loading Pokemon...</p>}
+
+					{!isLoading && (
+						<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} currentPokemon={pokemon} isDetailOpen={isDetailOpen} />
+					)}
+
 					<DetailView pokemon={pokemon} favorites={favorites} toggleFavorite={toggleFavorite} isOpen={isDetailOpen} setOpen={setIsDetailOpen} />
 				</section>
 			</main>

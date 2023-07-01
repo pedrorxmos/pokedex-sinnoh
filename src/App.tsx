@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { Topbar } from './components';
@@ -10,7 +10,7 @@ import { Pokedex } from './pages';
 import './scss/global.scss';
 
 function App() {
-	const { data } = useFetch<PokedexTypes>('https://pokeapi.co/api/v2/pokedex/6/');
+	const { data, isLoading, hasError } = useFetch<PokedexTypes>('https://pokeapi.co/api/v2/pokedex/6/');
 	const { pokemon_entries } = data || [];
 
 	const [favorites, setFavorites] = useState<EntryType[]>(JSON.parse(useGetItem('favPokemon', JSON.stringify([]))));
@@ -26,17 +26,25 @@ function App() {
 		setFavorites(newFav.sort((a, b) => a.entry_number - b.entry_number));
 	};
 
+	useEffect(() => {
+		if (hasError) console.error(hasError);
+	});
+
 	return (
 		<>
 			<Topbar />
 			<Routes>
 				<Route
 					path="/"
-					element={<Pokedex title="Sinnoh's Pokedex" pokedex={pokemon_entries} favorites={favorites} toggleFavorite={toggleFavorite} />}
+					element={
+						<Pokedex title="Sinnoh's Pokedex" pokedex={pokemon_entries} favorites={favorites} toggleFavorite={toggleFavorite} isLoading={isLoading} />
+					}
 				/>
 				<Route
 					path="favorites"
-					element={<Pokedex title="Favorite Pokemons" pokedex={favorites} favorites={favorites} toggleFavorite={toggleFavorite} />}
+					element={
+						<Pokedex title="Favorite Pokemons" pokedex={favorites} favorites={favorites} toggleFavorite={toggleFavorite} isLoading={isLoading} />
+					}
 				/>
 			</Routes>
 		</>
