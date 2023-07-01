@@ -48,12 +48,14 @@ export const Pokedex = ({ title, pokedex, favorites, toggleFavorite, isLoading }
 					</div>
 				</div>
 				<section className="pokedex-container">
-					{isLoading && <p>Loading Pokemon...</p>}
-
-					{!isLoading && (
-						<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} currentPokemon={pokemon} isDetailOpen={isDetailOpen} />
-					)}
-
+					<ListView
+						pokedex={pokedex}
+						layout={layout}
+						onClickPokemon={onClickPokemon}
+						currentPokemon={pokemon}
+						isDetailOpen={isDetailOpen}
+						isLoading={isLoading}
+					/>
 					<DetailView pokemon={pokemon} favorites={favorites} toggleFavorite={toggleFavorite} isOpen={isDetailOpen} setOpen={setIsDetailOpen} />
 				</section>
 			</main>
