@@ -15,9 +15,7 @@ describe('Testing of Pokedex page', () => {
 			},
 		},
 	];
-	const toggleFavorite = (value: EntryType) => {
-		value;
-	};
+	const toggleFavorite = jest.fn();
 
 	test('should show the page title', () => {
 		render(

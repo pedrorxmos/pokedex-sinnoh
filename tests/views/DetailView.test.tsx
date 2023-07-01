@@ -1,10 +1,10 @@
-import { render, screen } from '@testing-library/react';
-import { EntryType, PokemonTypes } from '../../src/interfaces';
 import { MemoryRouter } from 'react-router-dom';
-import { ListView } from '../../src/views';
-import React from 'react';
+import { EntryType, PokemonTypes } from '../../src/interfaces';
+import React, { useState } from 'react';
+import { render, screen } from '@testing-library/react';
+import { DetailView } from '../../src/views';
 
-describe('Testing of ListView view', () => {
+describe('Testing of DetailView view', () => {
 	// For these tests the current pokemon will be the only one on the entries
 	const entries: EntryType[] = [
 		{
@@ -15,8 +15,6 @@ describe('Testing of ListView view', () => {
 			},
 		},
 	];
-
-	const onClickPokemon = jest.fn();
 
 	const currentPokemon: PokemonTypes = {
 		id: '395',
@@ -96,35 +94,48 @@ describe('Testing of ListView view', () => {
 		],
 	};
 
-	test('should render a pokemon card', () => {
+	const funct = jest.fn();
+
+	test('should render pokemon name', () => {
 		render(
 			<MemoryRouter>
-				<ListView
-					pokedex={entries}
-					layout={'grid'}
-					onClickPokemon={onClickPokemon}
-					currentPokemon={currentPokemon}
-					isDetailOpen={true}
-					isLoading={false}
-				/>
+				<DetailView pokemon={currentPokemon} favorites={entries} toggleFavorite={funct} isOpen={true} setOpen={funct} />
 			</MemoryRouter>
 		);
-		expect(screen.getByText(entries[0].pokemon_species.name)).toBeTruthy();
+		expect(screen.getByText(currentPokemon.name)).toBeTruthy();
 	});
 
-	test('should render -no pokemon- text when pokedex is empty', () => {
+	test('should render pokemon id', () => {
 		render(
 			<MemoryRouter>
-				<ListView
-					pokedex={[]}
-					layout={'grid'}
-					onClickPokemon={onClickPokemon}
-					currentPokemon={currentPokemon}
-					isDetailOpen={true}
-					isLoading={false}
-				/>
+				<DetailView pokemon={currentPokemon} favorites={entries} toggleFavorite={funct} isOpen={true} setOpen={funct} />
 			</MemoryRouter>
 		);
-		expect(screen.getByText('There is no Pokemon in this list')).toBeTruthy();
+		expect(screen.getByText('#' + currentPokemon.id)).toBeTruthy();
+	});
+
+	test('should render all pokemon stats', () => {
+		render(
+			<MemoryRouter>
+				<DetailView pokemon={currentPokemon} favorites={entries} toggleFavorite={funct} isOpen={true} setOpen={funct} />
+			</MemoryRouter>
+		);
+
+		currentPokemon.stats.forEach((stat) => {
+			expect(screen.getByText(stat.stat.name.replace('-', ' '))).toBeTruthy();
+			expect(screen.getByText(stat.base_stat)).toBeTruthy();
+		});
+	});
+
+	test('should render all pokemon types', () => {
+		render(
+			<MemoryRouter>
+				<DetailView pokemon={currentPokemon} favorites={entries} toggleFavorite={funct} isOpen={true} setOpen={funct} />
+			</MemoryRouter>
+		);
+
+		currentPokemon.types.forEach((type) => {
+			expect(screen.getByText(type.type.name)).toBeTruthy();
+		});
 	});
 });
