@@ -28,6 +28,11 @@ export const Topbar = () => {
 		}, 300);
 	};
 
+	const onLinkClick = () => {
+		setIsOpen(false);
+		window.scrollTo(0, 0);
+	};
+
 	useEffect(() => {
 		if (root) root.className = theme;
 	}, [theme, root]);
@@ -35,7 +40,7 @@ export const Topbar = () => {
 	return (
 		<>
 			<header className="topbar">
-				<Link className="h3 logo" to="/">
+				<Link to="/" className="h3 logo" onClick={onLinkClick}>
 					Pokedex
 				</Link>
 
@@ -46,13 +51,13 @@ export const Topbar = () => {
 					</button>
 					<ul className="nav-list">
 						<li className="nav__item">
-							<Link to="/" className="nav__link" onClick={() => setIsOpen(false)}>
+							<Link to="/" className="nav__link" onClick={onLinkClick}>
 								Pokedex
 								<Icon name="arrow-right" title="go to pokedex" size="md" />
 							</Link>
 						</li>
 						<li className="nav__item">
-							<Link to="/favorites" className="nav__link" onClick={() => setIsOpen(false)}>
+							<Link to="/favorites" className="nav__link" onClick={onLinkClick}>
 								<span>Favorites</span>
 								<Icon name="arrow-right" title="go to favorites" size="md" />
 							</Link>
