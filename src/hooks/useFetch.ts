@@ -26,7 +26,7 @@ export const useFetch = <T>(url: string) => {
 		setState({
 			data,
 			isLoading: false,
-			hasError: data.error,
+			hasError: resp.ok ? resp.statusText : null,
 		});
 	};
 
