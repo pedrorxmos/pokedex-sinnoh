@@ -28,16 +28,6 @@ export const ListView = ({ pokedex, layout, onClickPokemon, currentPokemon, isDe
 		return currentPokemon.entry.entry_number === value.entry_number && isDetailOpen;
 	};
 
-	const entry: EntryType = {
-		entry_number: 1,
-		pokemon_species: {
-			name: 'turtwig',
-			url: '',
-		},
-	};
-
-	console.log(isActive(entry), document.querySelector('.pokedex-detail')?.className.indexOf('open'));
-
 	useEffect(() => {
 		if (+page <= 1 || +page > maxPages) navigate('./');
 	}, [page, maxPages, navigate]);
