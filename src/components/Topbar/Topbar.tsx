@@ -45,7 +45,7 @@ export const Topbar = () => {
 				</Link>
 
 				<nav className={`nav${isOpen ? ' open' : ''}`}>
-					<button className={`btn nav-action theme-toggle ${theme}`} title="switch theme" onClick={onThemeSwitch}>
+					<button role="theme-toggle" className={`btn nav-action theme-toggle ${theme}`} title="switch theme" onClick={onThemeSwitch}>
 						<Icon name="sun" title="switch to dark theme" className="theme-light" size="md" />
 						<Icon name="moon" title="switch to light theme" className="theme-dark" size="md" />
 					</button>
