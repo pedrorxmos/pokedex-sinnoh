@@ -1,10 +1,9 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { PokemonCard } from '../../components';
+import { PokemonCard, Pagination } from '../../components';
 import { EntryType, PokemonTypes } from '../../interfaces';
 
 import './ListView.scss';
 import { useEffect } from 'react';
-import { Pagination } from '../../components/Pagination/Pagination';
 
 interface ListViewProps {
 	pokedex: EntryType[];

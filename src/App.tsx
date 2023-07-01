@@ -5,8 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useFetch } from './hooks/useFetch';
 import { useState } from 'react';
 import { useGetItem, useSetItem } from './hooks/useLocalStorage';
-import { EntryType } from './interfaces';
-import { PokedexTypes } from './interfaces/Pokedex/Entry';
+import { EntryType, PokedexTypes } from './interfaces';
 
 function App() {
 	const { data } = useFetch<PokedexTypes>('https://pokeapi.co/api/v2/pokedex/6/');
