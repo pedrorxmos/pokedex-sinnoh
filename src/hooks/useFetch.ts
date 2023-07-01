@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
 
-interface FetchType {
-	data: any;
+interface FetchType<T> {
+	data: T;
 	isLoading: boolean;
 	hasError: unknown;
 }
 
-export const useFetch = (url: string) => {
-	const [state, setState] = useState({
-		data: {},
+export const useFetch = <T>(url: string) => {
+	const initialState: FetchType<T> = {
+		data: <T>{},
 		isLoading: true,
 		hasError: null,
-	});
+	};
+
+	const [state, setState] = useState(initialState);
 
 	const getFetch = async () => {
 		setState({
@@ -24,19 +26,18 @@ export const useFetch = (url: string) => {
 		setState({
 			data,
 			isLoading: false,
-			hasError: null,
+			hasError: data.error,
 		});
 	};
 
 	useEffect(() => {
 		getFetch();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [url]);
 
-	const res: FetchType = {
+	return {
 		data: state.data,
 		isLoading: state.isLoading,
 		hasError: state.hasError,
 	};
-
-	return res;
 };
