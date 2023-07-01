@@ -1,6 +1,7 @@
-import { useFetch } from '../../hooks/useFetch';
-import { EntryType, PokemonTypes, TypeTypes } from '../../interfaces';
 import { PokemonType } from '../';
+import { useFetch } from '../../hooks/useFetch';
+import { EntryType, PokemonTypes, TypeTypes, PokeAPITypes } from '../../interfaces';
+
 import './PokemonCard.scss';
 
 export interface PokemonCardProps {
@@ -16,7 +17,7 @@ export const PokemonCard = ({ name, url, entry, className, onClickPokemon }: Pok
 	// So I separate the url by '/', and that leaves the id in the 7th spot of the array
 
 	const id = url.split('/')[6];
-	const { data } = useFetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+	const { data } = useFetch<PokeAPITypes>(`https://pokeapi.co/api/v2/pokemon/${id}/`);
 	const { types, stats } = data || {};
 
 	const onClick = () => {

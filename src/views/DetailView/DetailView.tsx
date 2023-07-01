@@ -1,21 +1,26 @@
+import React, { SetStateAction } from 'react';
+
 import { Icon, Pokeball, PokemonType } from '../../components';
 import { EntryType, PokemonTypes, StatTypes, TypeTypes } from '../../interfaces';
+
 import './DetailView.scss';
 
 interface DetailViewProps {
 	pokemon?: PokemonTypes;
 	favorites: EntryType[];
 	toggleFavorite: (params: EntryType) => void;
+	isOpen: boolean;
+	setOpen: React.Dispatch<SetStateAction<boolean>>;
 }
 
-export const DetailView = ({ pokemon, favorites, toggleFavorite }: DetailViewProps) => {
+export const DetailView = ({ pokemon, favorites, toggleFavorite, isOpen, setOpen }: DetailViewProps) => {
 	//Add entry when adding favorites
 	const { id, name, entry, types, stats } = pokemon || {};
 
 	const isFav = favorites.find((fav) => fav.entry_number === entry?.entry_number) !== undefined;
 
 	const onClosePokemon = () => {
-		document.querySelector('.pokedex-detail')?.classList.remove('open');
+		setOpen(false);
 	};
 
 	const onToggleFavorite = () => {
@@ -24,7 +29,7 @@ export const DetailView = ({ pokemon, favorites, toggleFavorite }: DetailViewPro
 
 	return (
 		<>
-			<article className="pokedex-detail">
+			<article className={`pokedex-detail${isOpen ? ' open' : ''}`}>
 				<Pokeball />
 
 				<button

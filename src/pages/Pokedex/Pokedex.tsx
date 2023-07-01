@@ -1,9 +1,11 @@
 import { useState } from 'react';
+
 import { LayoutSwitcher } from '../../components';
 import { EntryType, PokemonTypes } from '../../interfaces';
-import './Pokedex.scss';
 import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
 import { ListView, DetailView } from '../../views';
+
+import './Pokedex.scss';
 
 interface PokedexProps {
 	title: string;
@@ -17,16 +19,21 @@ export const Pokedex = ({ title, pokedex, favorites, toggleFavorite }: PokedexPr
 	useSetItem('layoutStyle', layout);
 
 	const [pokemon, setPokemon] = useState(initialPokemon);
+	const [isDetailOpen, setIsDetailOpen] = useState(false);
 
 	const onClickPokemon = (value: PokemonTypes): void => {
-		if (pokemon.id === value.id && document.querySelector('.pokedex-detail')?.classList.contains('open')) return;
+		if (pokemon.id === value.id && isDetailOpen) return;
 
-		document.querySelector('.pokedex-detail')?.classList.remove('open');
+		setIsDetailOpen(false);
+
+		// First change pokemon in detail view
 		setTimeout(() => {
 			setPokemon(value);
 		}, 210);
+
+		// Then open detail view
 		setTimeout(() => {
-			document.querySelector('.pokedex-detail')?.classList.add('open');
+			setIsDetailOpen(true);
 		}, 500);
 	};
 
@@ -40,8 +47,8 @@ export const Pokedex = ({ title, pokedex, favorites, toggleFavorite }: PokedexPr
 					</div>
 				</div>
 				<section className="pokedex-container">
-					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} currentPokemon={pokemon} />
-					<DetailView pokemon={pokemon} favorites={favorites} toggleFavorite={toggleFavorite} />
+					<ListView pokedex={pokedex} layout={layout} onClickPokemon={onClickPokemon} currentPokemon={pokemon} isDetailOpen={isDetailOpen} />
+					<DetailView pokemon={pokemon} favorites={favorites} toggleFavorite={toggleFavorite} isOpen={isDetailOpen} setOpen={setIsDetailOpen} />
 				</section>
 			</main>
 		</>

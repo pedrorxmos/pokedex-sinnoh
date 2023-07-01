@@ -1,32 +1,36 @@
-import { Link } from 'react-router-dom';
-import { Icon, MenuButton } from '../';
-import './Topbar.scss';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Icon, MenuButton } from '../';
 import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
+
+import './Topbar.scss';
 
 export const Topbar = () => {
 	const [theme, setTheme] = useState<string>(useGetItem('theme', 'light'));
 	useSetItem('theme', theme);
+
 	const [isOpen, setIsOpen] = useState<boolean>(false);
+
 	const root = document.querySelector(':root');
-
-	// const onToggleMenu = (): void => {
-	// 	document.querySelector('.nav')?.classList.toggle('open');
-	// };
-
-	// const onCloseMenu = () => {
-	// 	document.querySelector('.nav')?.classList.remove('open');
-	// };
 
 	const onThemeSwitch = () => {
 		theme === 'dark' ? setTheme('light') : setTheme('dark');
 
+		// First add the animation class
 		document.querySelector('.theme-dark')?.classList.add('animation');
 		document.querySelector('.theme-light')?.classList.add('animation');
+
+		// Then, when animation is done (0.3s) removes it so it is possible to replay the animation
 		setTimeout(() => {
 			document.querySelector('.theme-dark')?.classList.remove('animation');
 			document.querySelector('.theme-light')?.classList.remove('animation');
 		}, 300);
+	};
+
+	const onLinkClick = () => {
+		setIsOpen(false);
+		window.scrollTo(0, 0);
 	};
 
 	useEffect(() => {
@@ -36,7 +40,7 @@ export const Topbar = () => {
 	return (
 		<>
 			<header className="topbar">
-				<Link className="h3 logo" to="/">
+				<Link to="/" className="h3 logo" onClick={onLinkClick}>
 					Pokedex
 				</Link>
 
@@ -47,13 +51,13 @@ export const Topbar = () => {
 					</button>
 					<ul className="nav-list">
 						<li className="nav__item">
-							<Link to="/" className="nav__link" onClick={() => setIsOpen(false)}>
+							<Link to="/" className="nav__link" onClick={onLinkClick}>
 								Pokedex
 								<Icon name="arrow-right" title="go to pokedex" size="md" />
 							</Link>
 						</li>
 						<li className="nav__item">
-							<Link to="/favorites" className="nav__link" onClick={() => setIsOpen(false)}>
+							<Link to="/favorites" className="nav__link" onClick={onLinkClick}>
 								<span>Favorites</span>
 								<Icon name="arrow-right" title="go to favorites" size="md" />
 							</Link>
