@@ -1,4 +1,5 @@
 import { getSvgContent } from './svgContent';
+
 import './Icon.scss';
 
 interface IconTypes {

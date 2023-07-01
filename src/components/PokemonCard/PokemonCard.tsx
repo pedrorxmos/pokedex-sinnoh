@@ -1,6 +1,7 @@
+import { PokemonType } from '../';
 import { useFetch } from '../../hooks/useFetch';
 import { EntryType, PokemonTypes, TypeTypes, PokeAPITypes } from '../../interfaces';
-import { PokemonType } from '../';
+
 import './PokemonCard.scss';
 
 export interface PokemonCardProps {

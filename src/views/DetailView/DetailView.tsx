@@ -1,6 +1,8 @@
 import React, { SetStateAction } from 'react';
+
 import { Icon, Pokeball, PokemonType } from '../../components';
 import { EntryType, PokemonTypes, StatTypes, TypeTypes } from '../../interfaces';
+
 import './DetailView.scss';
 
 interface DetailViewProps {

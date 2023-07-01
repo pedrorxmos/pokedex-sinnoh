@@ -1,9 +1,11 @@
 import { useState } from 'react';
+
 import { LayoutSwitcher } from '../../components';
 import { EntryType, PokemonTypes } from '../../interfaces';
-import './Pokedex.scss';
 import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
 import { ListView, DetailView } from '../../views';
+
+import './Pokedex.scss';
 
 interface PokedexProps {
 	title: string;

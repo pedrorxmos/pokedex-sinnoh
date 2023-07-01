@@ -1,11 +1,13 @@
-import { Topbar } from './components';
-import './scss/global.scss';
-import { Pokedex } from './pages';
-import { Routes, Route } from 'react-router-dom';
-import { useFetch } from './hooks/useFetch';
 import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+import { Topbar } from './components';
+import { useFetch } from './hooks/useFetch';
 import { useGetItem, useSetItem } from './hooks/useLocalStorage';
 import { EntryType, PokedexTypes } from './interfaces';
+import { Pokedex } from './pages';
+
+import './scss/global.scss';
 
 function App() {
 	const { data } = useFetch<PokedexTypes>('https://pokeapi.co/api/v2/pokedex/6/');

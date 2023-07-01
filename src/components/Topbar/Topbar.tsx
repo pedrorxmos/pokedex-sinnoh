@@ -1,8 +1,10 @@
-import { Link } from 'react-router-dom';
-import { Icon, MenuButton } from '../';
-import './Topbar.scss';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { Icon, MenuButton } from '../';
 import { useGetItem, useSetItem } from '../../hooks/useLocalStorage';
+
+import './Topbar.scss';
 
 export const Topbar = () => {
 	const [theme, setTheme] = useState<string>(useGetItem('theme', 'light'));

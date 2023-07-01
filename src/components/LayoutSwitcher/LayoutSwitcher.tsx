@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { Icon } from '..';
+
 import './LayoutSwitcher.scss';
 
 interface LayouSwitcherProps {

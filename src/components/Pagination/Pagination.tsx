@@ -1,6 +1,8 @@
 import { SetURLSearchParams } from 'react-router-dom';
-import './Pagination.scss';
+
 import { Icon } from '..';
+
+import './Pagination.scss';
 
 interface PaginationProps {
 	page: number;
