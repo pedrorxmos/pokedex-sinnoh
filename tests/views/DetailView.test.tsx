@@ -138,4 +138,14 @@ describe('Testing of DetailView view', () => {
 			expect(screen.getByText(type.type.name)).toBeTruthy();
 		});
 	});
+
+	test('should render pokemon img', () => {
+		render(
+			<MemoryRouter>
+				<DetailView pokemon={currentPokemon} favorites={entries} toggleFavorite={funct} isOpen={true} setOpen={funct} />
+			</MemoryRouter>
+		);
+		const img = screen.getByRole('pokedex-detail__content__img') as HTMLImageElement;
+		expect(img.src).toBe(`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/395.png`);
+	});
 });

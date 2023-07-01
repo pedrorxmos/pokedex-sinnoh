@@ -45,6 +45,7 @@ export const DetailView = ({ pokemon, favorites, toggleFavorite, isOpen, setOpen
 				</button>
 				<div className="pokedex-detail__content">
 					<img
+						role="pokedex-detail__content__img"
 						src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
 						alt=""
 						className="pokedex-detail__content__img"
