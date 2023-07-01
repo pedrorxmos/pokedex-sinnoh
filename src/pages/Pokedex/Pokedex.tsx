@@ -22,16 +22,17 @@ export const Pokedex = ({ title, pokedex, favorites, toggleFavorite }: PokedexPr
 	const [isDetailOpen, setIsDetailOpen] = useState(false);
 
 	const onClickPokemon = (value: PokemonTypes): void => {
-		// if (pokemon.id === value.id && document.querySelector('.pokedex-detail')?.classList.contains('open')) return;
 		if (pokemon.id === value.id && isDetailOpen) return;
 
-		// document.querySelector('.pokedex-detail')?.classList.remove('open');
 		setIsDetailOpen(false);
+
+		// First change pokemon in detail view
 		setTimeout(() => {
 			setPokemon(value);
 		}, 210);
+
+		// Then open detail view
 		setTimeout(() => {
-			// document.querySelector('.pokedex-detail')?.classList.add('open');
 			setIsDetailOpen(true);
 		}, 500);
 	};

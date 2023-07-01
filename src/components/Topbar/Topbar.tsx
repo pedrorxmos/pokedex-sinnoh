@@ -9,22 +9,19 @@ import './Topbar.scss';
 export const Topbar = () => {
 	const [theme, setTheme] = useState<string>(useGetItem('theme', 'light'));
 	useSetItem('theme', theme);
+
 	const [isOpen, setIsOpen] = useState<boolean>(false);
+
 	const root = document.querySelector(':root');
-
-	// const onToggleMenu = (): void => {
-	// 	document.querySelector('.nav')?.classList.toggle('open');
-	// };
-
-	// const onCloseMenu = () => {
-	// 	document.querySelector('.nav')?.classList.remove('open');
-	// };
 
 	const onThemeSwitch = () => {
 		theme === 'dark' ? setTheme('light') : setTheme('dark');
 
+		// First add the animation class
 		document.querySelector('.theme-dark')?.classList.add('animation');
 		document.querySelector('.theme-light')?.classList.add('animation');
+
+		// Then, when animation is done (0.3s) removes it so it is possible to replay the animation
 		setTimeout(() => {
 			document.querySelector('.theme-dark')?.classList.remove('animation');
 			document.querySelector('.theme-light')?.classList.remove('animation');

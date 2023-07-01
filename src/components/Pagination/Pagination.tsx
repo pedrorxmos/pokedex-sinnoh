@@ -19,7 +19,8 @@ export const Pagination = ({ page, maxPages, itemsLength, offset, limit, setSear
 		window.scrollTo(0, 0);
 	};
 
-	// Array.from({ length: maxPages - 1 }, (_, i) => i + 1)
+	// Creates an array of pages without the first and last pages (1 & maxPages)
+	const pagesArray = Array.from({ length: (maxPages - 1 - 2) / 1 + 1 }, (_, i) => 2 + i * 1);
 
 	return (
 		<>
@@ -37,7 +38,7 @@ export const Pagination = ({ page, maxPages, itemsLength, offset, limit, setSear
 
 					{page > 3 && <button className="btn pagination__item pagination__item__no-action">...</button>}
 
-					{Array.from({ length: (maxPages - 1 - 2) / 1 + 1 }, (_, i) => 2 + i * 1).map((x: number) => {
+					{pagesArray.map((x: number) => {
 						if (x >= page + 2 || x <= page - 2) return;
 
 						return (

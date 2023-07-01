@@ -20,7 +20,6 @@ export const DetailView = ({ pokemon, favorites, toggleFavorite, isOpen, setOpen
 	const isFav = favorites.find((fav) => fav.entry_number === entry?.entry_number) !== undefined;
 
 	const onClosePokemon = () => {
-		// document.querySelector('.pokedex-detail')?.classList.remove('open');
 		setOpen(false);
 	};
 

@@ -12,8 +12,8 @@ import './scss/global.scss';
 function App() {
 	const { data } = useFetch<PokedexTypes>('https://pokeapi.co/api/v2/pokedex/6/');
 	const { pokemon_entries } = data || [];
-	const emptyFav: string = JSON.stringify([]);
-	const [favorites, setFavorites] = useState<EntryType[]>(JSON.parse(useGetItem('favPokemon', emptyFav)));
+
+	const [favorites, setFavorites] = useState<EntryType[]>(JSON.parse(useGetItem('favPokemon', JSON.stringify([]))));
 	useSetItem('favPokemon', JSON.stringify(favorites));
 
 	const toggleFavorite = (value: EntryType) => {
