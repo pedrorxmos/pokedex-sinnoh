@@ -21,7 +21,7 @@ export const MenuButton = ({ className, isOpen, setIsOpen }: MenuIconProps) => {
 
 	return (
 		<>
-			<button className="btn nav-action menu-toggle" onClick={() => setIsOpen(!isOpen)}>
+			<button role="menu-toggle" className="btn nav-action menu-toggle" onClick={() => setIsOpen(!isOpen)}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
