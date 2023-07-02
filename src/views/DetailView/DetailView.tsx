@@ -14,7 +14,6 @@ interface DetailViewProps {
 }
 
 export const DetailView = ({ pokemon, favorites, toggleFavorite, isOpen, setOpen }: DetailViewProps) => {
-	//Add entry when adding favorites
 	const { id, name, entry, types, stats } = pokemon || {};
 
 	const isFav = favorites.find((fav) => fav.entry_number === entry?.entry_number) !== undefined;
