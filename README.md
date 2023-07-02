@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Pokedex Sinnoh</h1>
+  <h1>Sinnoh's Pokedex</h1>
   Designed and coded with ♥ by Pedro Ramos
 </div>
 
@@ -12,6 +12,10 @@ This project is made with:
 - [Sass (scss)](https://sass-lang.com/)
 - [PokeAPI](https://pokeapi.co/)
 
+
+## Preview
+
+![Desktop Preview](./public/preview.webp)
 
 ## Installation
 
@@ -37,6 +41,14 @@ To deploy this applicattion, you have to use:
 
 ```bash
 $ npm run build
+```
+
+## Testing
+
+To test this application you should use:
+
+```bash
+$ npm run test
 ```
 
 
