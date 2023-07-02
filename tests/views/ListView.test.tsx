@@ -127,4 +127,13 @@ describe('Testing of ListView view', () => {
 		);
 		expect(screen.getByText('There is no Pokemon in this list')).toBeTruthy();
 	});
+
+	test('should render loading text when isLoading is true', () => {
+		render(
+			<MemoryRouter>
+				<ListView pokedex={[]} layout={'grid'} onClickPokemon={onClickPokemon} currentPokemon={currentPokemon} isDetailOpen={true} isLoading={true} />
+			</MemoryRouter>
+		);
+		expect(screen.getByText('Pokedex is loading...')).toBeTruthy();
+	});
 });
