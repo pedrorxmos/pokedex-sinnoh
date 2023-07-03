@@ -3,6 +3,7 @@
 ## Índice
 - [Descripción](#descripción)
 - [Herramientas utilizadas](#herramientas-utilizadas)
+- [Diseño y estructura](#diseño-y-estructura)
 - [APIs](#apis)
 - [Hooks](#hooks)
   - [useFetch](#usefetch)
@@ -41,6 +42,12 @@ Para este proyecto he utilizado las siguientes herramientas:
 - **TypeScript:** Las veces que he utilizado TypeScript previamente al proyecto ha sido muy limitada, pero al ser una bola extra he querido plantearme el reto de utilizarlo en este proyecto, utilizado los mínimos conocimientos que tenía previamente sobre el tipado y ampliando estos al mismo tiempo.
 - **SCSS:** Para el estilo he empleado SCSS porque puedo utilizar toda la sintaxis de CSS pero con las ventajas del preprocesador de SASS. Con él he podido estructurar mi estilo, añadiendo así variables, mixins y funciones.
 - **Jest y Testing Library:** He usado estas herramientas para realizar el testing de la aplicación, aparte de que son las únicas que conozco por el momento, porque son herramientas muy rápidas y reducen así el tiempo que se tarda en testear el código.
+
+## Diseño y estructura
+
+Para el diseño de la aplicación he utilizado el software de Figma, con el cual, he podido probar y estructurar de una manera más conceptual la aplicación. A partir de este diseño he concluido con un solo tipo de página, ya que tanto la pantalla de la Pokedex con todos los pokémon de la región de Sinnoh, como la pantalla con los pokémon favoritos, mantienen la misma estructura, que consiste en un layout separado en dos vistas. La primera, más grande, es el listado de los pokémon, y la segunda es el detalle del pokémon, donde se puede ver más información del pokémon como son las estadísticas.
+
+A la hora de estructurar el código he preferido hacer por tipo de elemento, por lo que los he dividido en páginas, vistas, componentes, interfaces y hooks, para poder hacer más sencillo la búsqueda de código a la hora de, si fuese necesario, hacer cambios en un futuro. Todas estas carpetas, excepto la carpeta de hooks, se exportan mediante un archivo de exportación en barril, para así reducir la líneas de código que necesitan las importaciones. 
 
 ## APIs
 
